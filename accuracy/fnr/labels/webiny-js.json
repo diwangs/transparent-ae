@@ -1,0 +1,35 @@
+[
+  {
+    "id": "CVE-2023-41167-1",
+    "relativePath": "packages/react-rich-text-renderer/src/index.tsx",
+    "startLine": 37
+  },{
+    "id": "CVE-2023-41167-2",
+    "relativePath": "packages/react-rich-text-renderer/src/index.tsx",
+    "startLine": 72
+  },{
+    "id": "CVE-2023-41167-3",
+    "relativePath": "packages/react-rich-text-renderer/src/index.tsx",
+    "startLine": 84
+  },{
+    "id": "CVE-2023-41167-4",
+    "relativePath": "packages/react-rich-text-renderer/src/index.tsx",
+    "startLine": 96
+  },{
+    "id": "CVE-2023-41167-5",
+    "relativePath": "packages/react-rich-text-renderer/src/index.tsx",
+    "startLine": 108
+  },{
+    "id": "CVE-2023-41167-6",
+    "relativePath": "packages/react-rich-text-renderer/src/index.tsx",
+    "startLine": 120
+  },{
+    "id": "CVE-2023-41167-7",
+    "relativePath": "packages/react-rich-text-renderer/src/index.tsx",
+    "startLine": 132
+  },{
+    "id": "CVE-2023-41167-8",
+    "relativePath": "packages/react-rich-text-renderer/src/index.tsx",
+    "startLine": 141
+  }
+]

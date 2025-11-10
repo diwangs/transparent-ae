@@ -1,0 +1,9 @@
+[submodule "transparent/targets/vue2-src/vue"]
+	path = transparent/targets/vue2-src/vue
+	url = https://github.com/vuejs/vue
+[submodule "transparent/targets/react-src/react"]
+	path = transparent/targets/react-src/react
+	url = https://github.com/facebook/react
+[submodule "transparent/targets/angular-src/angular"]
+	path = transparent/targets/angular-src/angular
+	url = https://github.com/angular/angular

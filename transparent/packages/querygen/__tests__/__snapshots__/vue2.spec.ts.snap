@@ -1,0 +1,129 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Vue 2 > should generate the correct JS syntax class 1`] = `
+"
+    class Vue2JsSyntaxSink extends Vue2Sink {
+      Vue2JsSyntaxSink() {
+        exists(Vue::Component c, DataFlow::FunctionNode renderFunc, DataFlow::SourceNode data |
+          (
+            renderFunc.flowsTo(c.getRender())
+            or renderFunc.getName() = "render"
+          ) 
+          and data.flowsTo(renderFunc.getParameter(0).getACall().getArgument(1))
+
+          and (
+            
+                exists(DataFlow::PropRef dataDomProps, DataFlow::PropWrite dataDomPropsPW | 
+                  isPropagated(data, dataDomProps, "attrs")
+                  and isPropagated(dataDomProps, dataDomPropsPW, vulnNativeAttr())
+                  
+                  and dataDomPropsPW.getRhs() = this
+                )
+                or
+
+                exists(DataFlow::PropRef dataDomProps, DataFlow::PropWrite dataDomPropsPW | 
+                  isPropagated(data, dataDomProps, "domProps")
+                  and isPropagated(dataDomProps, dataDomPropsPW, vulnNativeProp())
+                  
+                  and dataDomPropsPW.getRhs() = this
+                )
+                
+          )
+        )    
+      }
+    }
+    "
+`;
+
+exports[`Vue 2 > should generate the correct JSX syntax class 1`] = `
+"
+    class Vue2HtmlSyntaxSink extends Vue2Sink {
+      Vue2HtmlSyntaxSink() {
+        exists(JsxAttribute attr | 
+          (
+            
+                (
+                  attr.getName().prefix(5) = "attrs"
+                  and attr.getName().suffix(vulnNativeAttr().length()).toLowerCase() = vulnNativeAttr().toLowerCase()
+                )
+                or
+
+                (
+                  attr.getName().prefix(8) = "domProps"
+                  and attr.getName().suffix(vulnNativeProp().length()).toLowerCase() = vulnNativeProp().toLowerCase()
+                )
+                
+          )
+          and attr.getValue() = this.asExpr()
+        )
+      }
+    }
+    "
+`;
+
+exports[`Vue 2 > should generate the correct ref mechanism 1`] = `
+"
+  string getVue2RefName() {
+    
+    exists(HTML::Attribute refAttr | 
+      refAttr.getName() = "ref"
+      and result = refAttr.getValue()
+    )
+    
+
+    or
+
+    
+    exists(Vue::Component c, DataFlow::FunctionNode renderFunc, DataFlow::SourceNode data |
+      renderFunc.flowsTo(c.getRender()) 
+      and data.flowsTo(renderFunc.getParameter(0).getACall().getArgument(1))
+
+      and exists(DataFlow::PropWrite dataRef | 
+        isPropagated(data, dataRef, "ref")
+        
+        and dataRef.getRhs().getStringValue() = result
+      )
+    )
+    
+  }
+  
+  class Vue2RefSink extends Vue2Sink {
+    string refName;
+    
+    Vue2RefSink() {
+      refName = getVue2RefName()
+
+      and exists(Vue::Component c, DataFlow::ThisNode vm, DataFlow::SourceNode refNode | 
+        vm = c.getABoundFunction().getAFunctionValue().getReceiver()
+        and refNode = vm.getAPropertyRead("$refs")
+
+        and exists(DataFlow::PropRef refNodeName | 
+          isPropagated(refNode, refNodeName, refName)
+          and isDomSink(refNodeName, this)
+        )
+      )
+    }
+  }
+
+  class Vue2RefRead extends Vue2Sink {
+    string refName;
+
+    Vue2RefRead() {
+      refName = getVue2RefName()
+
+      and exists(DataFlow::Node refNodeName | 
+        exists(Vue::Component c, DataFlow::ThisNode vm, DataFlow::SourceNode refNode | 
+          vm = c.getABoundFunction().getAFunctionValue().getReceiver()
+          and refNode = vm.getAPropertyRead("$refs")
+          and refNodeName = refNode.getAPropertyRead(refName)
+        )
+
+        and exists(DomMethodCallNodeExtended mc | 
+          mc.interpretsArgumentAsUrl(this)
+          and getACaller*(this.asExpr().getEnclosingFunction()) = getACaller*(refNodeName.asExpr().getEnclosingFunction())
+        )
+      )
+    }
+  }
+  "
+`;

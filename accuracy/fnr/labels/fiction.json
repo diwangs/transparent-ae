@@ -1,0 +1,15 @@
+[
+  {
+    "id": "CVE-2021-25982",
+    "relativePath": "@plugins/plugin-forum/topic-list.vue",
+    "startLine": 27
+  },{
+    "id": "CVE-2021-25983",
+    "relativePath": "@plugins/plugin-forum/topic-list.vue",
+    "startLine": 27
+  },{
+    "id": "CVE-2021-25984",
+    "relativePath": "@plugins/plugin-forum/topic-reply.vue",
+    "startLine": 20
+  }
+]

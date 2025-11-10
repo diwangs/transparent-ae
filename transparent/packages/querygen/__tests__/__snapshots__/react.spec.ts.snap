@@ -1,0 +1,94 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`React > should generate the correct JS syntax class 1`] = `
+"
+    class ReactJsSyntaxSink extends ReactSink {
+      ReactJsSyntaxSink() {
+        exists(DataFlow::SourceNode props | 
+          
+              props.flowsTo(react().getAMemberCall("createElement").getArgument(1))
+              and props.hasPropertyWrite(vulnReactProp(), this)
+            
+        )
+      }
+    }
+  "
+`;
+
+exports[`React > should generate the correct JSX syntax class 1`] = `
+"
+    class ReactHtmlSyntaxSink extends ReactSink, DataFlow::SourceNode {
+      ReactHtmlSyntaxSink() {
+        exists(DataFlow::Node danger, DataFlow::SourceNode valueSrc |
+          
+              (
+                exists(JsxAttribute attr |
+                  attr.getName() = vulnReactProp() and
+                  attr.getValue() = danger.asExpr()
+                )
+                or
+                exists(ReactElementDefinition def, DataFlow::ObjectLiteralNode props |
+                  props.flowsTo(def.getProps()) and
+                  props.hasPropertyWrite(vulnReactProp(), danger)
+                )
+              )
+            
+        |
+          valueSrc.flowsTo(danger) and
+          valueSrc.(DataFlow::Node) = this
+        )
+      }
+    }
+  "
+`;
+
+exports[`React > should generate the correct ref mechanism 1`] = `
+"
+    class ReactRefSink extends ReactSink {
+      ReactRefSink() {
+        exists(DataFlow::SourceNode ref | 
+          (
+            ref = react().getAMemberCall("useRef")
+            or ref = react().getAMemberCall("createRef")
+          )
+
+
+          and (
+            
+              exists(JsxAttribute refAttr, DataFlow::Node refValue | 
+              refAttr.getName() = "ref"
+              and refAttr.getValue() = refValue.asExpr()
+              and ref.flowsTo(refValue)
+            )
+
+            or
+
+            
+              exists(DataFlow::FunctionNode renderFunc, DataFlow::SourceNode props, DataFlow::Node refValue | 
+                props.flowsTo(react().getAMemberCall("createElement").getArgument(1))
+                and props.hasPropertyWrite("ref", refValue)
+                and ref.flowsTo(refValue)
+              )
+          )
+          
+          and exists(DataFlow::PropRef refCurrent | 
+            isPropagated(ref, refCurrent, "current")
+            and isDomSink(refCurrent, this)
+          )
+        )
+      }
+    }
+  
+    class ReactRefReadSink extends Http::ResponseSendArgument, ReactSink {
+      Http::Servers::ResponseSource attachment;
+
+      ReactRefReadSink() {
+        this.getRouteHandler() = attachment.getRouteHandler()
+        and attachment.(DataFlow::CallNode).getCalleeName() = "attachment"
+        and attachment.(DataFlow::CallNode).getArgument(0).toString().matches("%.csv%")
+      }
+
+      override Http::RouteHandler getRouteHandler() { result = attachment.getRouteHandler() }
+    }
+  "
+`;

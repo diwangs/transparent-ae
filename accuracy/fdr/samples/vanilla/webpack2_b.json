@@ -1,0 +1,6 @@
+{"#select":{"columns":[
+   {"kind":"String"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+   ["src/components/goodscart/goodscart.vue","20"]]
+ }}

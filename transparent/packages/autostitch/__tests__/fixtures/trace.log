@@ -1,0 +1,896 @@
+● ReactDOMComponent › updateDOM › should empty element when removing innerHTML
+
+    Expected test not to call console.error().
+
+    If the warning is expected, test for it explicitly by:
+    1. Using the .toErrorDev() matcher, or...
+    2. Mock it out using spyOnDev(console, 'error') or spyOnProd(console, 'error'), and test that the warning occurs.
+
+    Trace: tranSPArent flag
+
+      61 |     }
+      62 |   }
+    > 63 |   console.trace('tranSPArent flag');
+         |           ^
+      64 |   node.innerHTML = (html: any);
+      65 | });
+      66 |
+
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:907:16)
+      at console.newMethod [as error] (scripts/jest/setupTests.js:82:19)
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:907:16)
+      at flushUnexpectedConsoleCalls (scripts/jest/setupTests.js:128:13)
+      at Object.flushAllUnexpectedConsoleCalls (scripts/jest/setupTests.js:139:5)
+
+  ● ReactDOMComponent › updateDOM › should transition from string content to innerHTML
+
+    Expected test not to call console.error().
+
+    If the warning is expected, test for it explicitly by:
+    1. Using the .toErrorDev() matcher, or...
+    2. Mock it out using spyOnDev(console, 'error') or spyOnProd(console, 'error'), and test that the warning occurs.
+
+    Trace: tranSPArent flag
+
+      61 |     }
+      62 |   }
+    > 63 |   console.trace('tranSPArent flag');
+         |           ^
+      64 |   node.innerHTML = (html: any);
+      65 | });
+      66 |
+
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at updateDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:361:33)
+      at updateProperties (packages/react-dom/src/client/ReactDOMComponent.js:826:3)
+      at commitUpdate (packages/react-dom/src/client/ReactDOMHostConfig.js:458:43)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2203:58)
+      at recursivelyTraverseMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2076:7)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2255:9)
+      at commitMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2045:3)
+      at commitRootImpl (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:2163:53)
+      at commitRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1976:5)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1277:3)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSyncCallbacksOnlyInLegacyMode (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:47:5)
+      at scheduleUpdateOnFiber (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:654:71)
+      at updateContainer (packages/react-reconciler/src/ReactFiberReconciler.new.js:383:51)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:236:47)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:922:16)
+      at console.newMethod [as error] (scripts/jest/setupTests.js:82:19)
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at updateDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:361:33)
+      at updateProperties (packages/react-dom/src/client/ReactDOMComponent.js:826:3)
+      at commitUpdate (packages/react-dom/src/client/ReactDOMHostConfig.js:458:43)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2203:58)
+      at recursivelyTraverseMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2076:7)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2255:9)
+      at commitMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2045:3)
+      at commitRootImpl (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:2163:53)
+      at commitRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1976:5)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1277:3)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSyncCallbacksOnlyInLegacyMode (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:47:5)
+      at scheduleUpdateOnFiber (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:654:71)
+      at updateContainer (packages/react-reconciler/src/ReactFiberReconciler.new.js:383:51)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:236:47)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:922:16)
+      at flushUnexpectedConsoleCalls (scripts/jest/setupTests.js:128:13)
+      at Object.flushAllUnexpectedConsoleCalls (scripts/jest/setupTests.js:139:5)
+
+  ● ReactDOMComponent › updateDOM › should transition from innerHTML to string content
+
+    Expected test not to call console.error().
+
+    If the warning is expected, test for it explicitly by:
+    1. Using the .toErrorDev() matcher, or...
+    2. Mock it out using spyOnDev(console, 'error') or spyOnProd(console, 'error'), and test that the warning occurs.
+
+    Trace: tranSPArent flag
+
+      61 |     }
+      62 |   }
+    > 63 |   console.trace('tranSPArent flag');
+         |           ^
+      64 |   node.innerHTML = (html: any);
+      65 | });
+      66 |
+
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:931:16)
+      at console.newMethod [as error] (scripts/jest/setupTests.js:82:19)
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:931:16)
+      at flushUnexpectedConsoleCalls (scripts/jest/setupTests.js:128:13)
+      at Object.flushAllUnexpectedConsoleCalls (scripts/jest/setupTests.js:139:5)
+
+  ● ReactDOMComponent › updateDOM › should transition from innerHTML to children in nested el
+
+    Expected test not to call console.error().
+
+    If the warning is expected, test for it explicitly by:
+    1. Using the .toErrorDev() matcher, or...
+    2. Mock it out using spyOnDev(console, 'error') or spyOnProd(console, 'error'), and test that the warning occurs.
+
+    Trace: tranSPArent flag
+
+      61 |     }
+      62 |   }
+    > 63 |   console.trace('tranSPArent flag');
+         |           ^
+      64 |   node.innerHTML = (html: any);
+      65 | });
+      66 |
+
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:943:16)
+      at console.newMethod [as error] (scripts/jest/setupTests.js:82:19)
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:943:16)
+      at flushUnexpectedConsoleCalls (scripts/jest/setupTests.js:128:13)
+      at Object.flushAllUnexpectedConsoleCalls (scripts/jest/setupTests.js:139:5)
+
+  ● ReactDOMComponent › updateDOM › should transition from children to innerHTML in nested el
+
+    Expected test not to call console.error().
+
+    If the warning is expected, test for it explicitly by:
+    1. Using the .toErrorDev() matcher, or...
+    2. Mock it out using spyOnDev(console, 'error') or spyOnProd(console, 'error'), and test that the warning occurs.
+
+    Trace: tranSPArent flag
+
+      61 |     }
+      62 |   }
+    > 63 |   console.trace('tranSPArent flag');
+         |           ^
+      64 |   node.innerHTML = (html: any);
+      65 | });
+      66 |
+
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at updateDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:361:33)
+      at updateProperties (packages/react-dom/src/client/ReactDOMComponent.js:826:3)
+      at commitUpdate (packages/react-dom/src/client/ReactDOMHostConfig.js:458:43)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2203:58)
+      at recursivelyTraverseMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2076:7)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2163:9)
+      at recursivelyTraverseMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2076:7)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2255:9)
+      at commitMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2045:3)
+      at commitRootImpl (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:2163:53)
+      at commitRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1976:5)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1277:3)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSyncCallbacksOnlyInLegacyMode (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:47:5)
+      at scheduleUpdateOnFiber (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:654:71)
+      at updateContainer (packages/react-reconciler/src/ReactFiberReconciler.new.js:383:51)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:236:47)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:974:16)
+      at console.newMethod [as error] (scripts/jest/setupTests.js:82:19)
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at updateDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:361:33)
+      at updateProperties (packages/react-dom/src/client/ReactDOMComponent.js:826:3)
+      at commitUpdate (packages/react-dom/src/client/ReactDOMHostConfig.js:458:43)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2203:58)
+      at recursivelyTraverseMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2076:7)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2163:9)
+      at recursivelyTraverseMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2076:7)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2255:9)
+      at commitMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2045:3)
+      at commitRootImpl (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:2163:53)
+      at commitRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1976:5)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1277:3)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSyncCallbacksOnlyInLegacyMode (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:47:5)
+      at scheduleUpdateOnFiber (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:654:71)
+      at updateContainer (packages/react-reconciler/src/ReactFiberReconciler.new.js:383:51)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:236:47)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:974:16)
+      at flushUnexpectedConsoleCalls (scripts/jest/setupTests.js:128:13)
+      at Object.flushAllUnexpectedConsoleCalls (scripts/jest/setupTests.js:139:5)
+
+  ● ReactDOMComponent › whitespace › renders innerHTML and preserves whitespace
+
+    Expected test not to call console.error().
+
+    If the warning is expected, test for it explicitly by:
+    1. Using the .toErrorDev() matcher, or...
+    2. Mock it out using spyOnDev(console, 'error') or spyOnProd(console, 'error'), and test that the warning occurs.
+
+    Trace: tranSPArent flag
+
+      61 |     }
+      62 |   }
+    > 63 |   console.trace('tranSPArent flag');
+         |           ^
+      64 |   node.innerHTML = (html: any);
+      65 | });
+      66 |
+
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:2290:16)
+      at console.newMethod [as error] (scripts/jest/setupTests.js:82:19)
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:2290:16)
+      at flushUnexpectedConsoleCalls (scripts/jest/setupTests.js:128:13)
+      at Object.flushAllUnexpectedConsoleCalls (scripts/jest/setupTests.js:139:5)
+
+  ● ReactDOMComponent › whitespace › render and then updates innerHTML and preserves whitespace
+
+    Expected test not to call console.error().
+
+    If the warning is expected, test for it explicitly by:
+    1. Using the .toErrorDev() matcher, or...
+    2. Mock it out using spyOnDev(console, 'error') or spyOnProd(console, 'error'), and test that the warning occurs.
+
+    Trace: tranSPArent flag
+
+      61 |     }
+      62 |   }
+    > 63 |   console.trace('tranSPArent flag');
+         |           ^
+      64 |   node.innerHTML = (html: any);
+      65 | });
+      66 |
+
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:2298:16)
+      at console.newMethod [as error] (scripts/jest/setupTests.js:82:19)
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:2298:16)
+      Trace: tranSPArent flag
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at updateDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:361:33)
+      at updateProperties (packages/react-dom/src/client/ReactDOMComponent.js:826:3)
+      at commitUpdate (packages/react-dom/src/client/ReactDOMHostConfig.js:458:43)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2203:58)
+      at recursivelyTraverseMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2076:7)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2255:9)
+      at commitMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2045:3)
+      at commitRootImpl (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:2163:53)
+      at commitRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1976:5)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1277:3)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSyncCallbacksOnlyInLegacyMode (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:47:5)
+      at scheduleUpdateOnFiber (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:654:71)
+      at updateContainer (packages/react-reconciler/src/ReactFiberReconciler.new.js:383:51)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:236:47)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:2302:16)
+      at console.newMethod [as error] (scripts/jest/setupTests.js:82:19)
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at updateDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:361:33)
+      at updateProperties (packages/react-dom/src/client/ReactDOMComponent.js:826:3)
+      at commitUpdate (packages/react-dom/src/client/ReactDOMHostConfig.js:458:43)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2203:58)
+      at recursivelyTraverseMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2076:7)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2255:9)
+      at commitMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2045:3)
+      at commitRootImpl (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:2163:53)
+      at commitRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1976:5)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1277:3)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSyncCallbacksOnlyInLegacyMode (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:47:5)
+      at scheduleUpdateOnFiber (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:654:71)
+      at updateContainer (packages/react-reconciler/src/ReactFiberReconciler.new.js:383:51)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:236:47)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:2302:16)
+      at flushUnexpectedConsoleCalls (scripts/jest/setupTests.js:128:13)
+      at Object.flushAllUnexpectedConsoleCalls (scripts/jest/setupTests.js:139:5)
+
+  ● ReactDOMComponent › Custom attributes › allows Temporal-like objects as HTML (they are not coerced to strings first)
+
+    Expected test not to call console.error().
+
+    If the warning is expected, test for it explicitly by:
+    1. Using the .toErrorDev() matcher, or...
+    2. Mock it out using spyOnDev(console, 'error') or spyOnProd(console, 'error'), and test that the warning occurs.
+
+    Trace: tranSPArent flag
+
+      61 |     }
+      62 |   }
+    > 63 |   console.trace('tranSPArent flag');
+         |           ^
+      64 |   node.innerHTML = (html: any);
+      65 | });
+      66 |
+
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:2452:16)
+      at console.newMethod [as error] (scripts/jest/setupTests.js:82:19)
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactDOMComponent-test.js:2452:16)
+      at flushUnexpectedConsoleCalls (scripts/jest/setupTests.js:128:13)
+      at Object.flushAllUnexpectedConsoleCalls (scripts/jest/setupTests.js:139:5)
+
+FAIL packages/react-dom/src/__tests__/ReactDOMServerIntegrationSelect-test.js (22.189 s)
+  ● ReactDOMServerIntegrationSelect › renders a select with options that use dangerouslySetInnerHTML with clean client render
+
+    expect(spy).toHaveBeenCalledTimes(expected)
+
+    Expected number of calls: 2
+    Received number of calls: 6
+
+      108 |   function renderIntoDom(
+      109 |     reactElement,
+    > 110 |     domElement,
+          |                ^
+      111 |     forceHydrate,
+      112 |     errorCount = 0,
+      113 |   ) {
+
+      at packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:110:1228
+      at asyncGeneratorStep (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:114)
+      at _next (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:452)
+
+  ● ReactDOMServerIntegrationSelect › renders a select with options that use dangerouslySetInnerHTML with client render on top of bad server markup
+
+    expect(spy).toHaveBeenCalledTimes(expected)
+
+    Expected number of calls: 3
+    Received number of calls: 7
+
+      108 |   function renderIntoDom(
+      109 |     reactElement,
+    > 110 |     domElement,
+          |                ^
+      111 |     forceHydrate,
+      112 |     errorCount = 0,
+      113 |   ) {
+
+      at packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:110:1228
+      at asyncGeneratorStep (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:114)
+      at _next (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:452)
+
+FAIL packages/react-dom/src/__tests__/ReactEventIndependence-test.js
+  ● ReactEventIndependence › does not crash with other react inside
+
+    Expected test not to call console.error().
+
+    If the warning is expected, test for it explicitly by:
+    1. Using the .toErrorDev() matcher, or...
+    2. Mock it out using spyOnDev(console, 'error') or spyOnProd(console, 'error'), and test that the warning occurs.
+
+    Trace: tranSPArent flag
+
+      61 |     }
+      62 |   }
+    > 63 |   console.trace('tranSPArent flag');
+         |           ^
+      64 |   node.innerHTML = (html: any);
+      65 | });
+      66 |
+
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactEventIndependence-test.js:28:26)
+      at console.newMethod [as error] (scripts/jest/setupTests.js:82:19)
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/__tests__/ReactEventIndependence-test.js:28:26)
+      at flushUnexpectedConsoleCalls (scripts/jest/setupTests.js:128:13)
+      at Object.flushAllUnexpectedConsoleCalls (scripts/jest/setupTests.js:139:5)
+
+FAIL packages/react-dom/src/__tests__/ReactDOMServerIntegrationElements-test.js (106.249 s)
+  ● ReactDOMServerIntegration › elements and children › renders a div with dangerouslySetInnerHTML number with clean client render
+
+    expect(spy).toHaveBeenCalledTimes(expected)
+
+    Expected number of calls: 0
+    Received number of calls: 2
+
+      108 |   function renderIntoDom(
+      109 |     reactElement,
+    > 110 |     domElement,
+          |                ^
+      111 |     forceHydrate,
+      112 |     errorCount = 0,
+      113 |   ) {
+
+      at packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:110:1228
+      at asyncGeneratorStep (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:114)
+      at _next (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:452)
+
+  ● ReactDOMServerIntegration › elements and children › renders a div with dangerouslySetInnerHTML number with client render on top of bad server markup
+
+    expect(spy).toHaveBeenCalledTimes(expected)
+
+    Expected number of calls: 1
+    Received number of calls: 3
+
+      108 |   function renderIntoDom(
+      109 |     reactElement,
+    > 110 |     domElement,
+          |                ^
+      111 |     forceHydrate,
+      112 |     errorCount = 0,
+      113 |   ) {
+
+      at packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:110:1228
+      at asyncGeneratorStep (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:114)
+      at _next (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:452)
+
+  ● ReactDOMServerIntegration › elements and children › renders a div with dangerouslySetInnerHTML boolean with clean client render
+
+    expect(spy).toHaveBeenCalledTimes(expected)
+
+    Expected number of calls: 0
+    Received number of calls: 2
+
+      108 |   function renderIntoDom(
+      109 |     reactElement,
+    > 110 |     domElement,
+          |                ^
+      111 |     forceHydrate,
+      112 |     errorCount = 0,
+      113 |   ) {
+
+      at packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:110:1228
+      at asyncGeneratorStep (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:114)
+      at _next (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:452)
+
+  ● ReactDOMServerIntegration › elements and children › renders a div with dangerouslySetInnerHTML boolean with client render on top of bad server markup
+
+    expect(spy).toHaveBeenCalledTimes(expected)
+
+    Expected number of calls: 1
+    Received number of calls: 3
+
+      108 |   function renderIntoDom(
+      109 |     reactElement,
+    > 110 |     domElement,
+          |                ^
+      111 |     forceHydrate,
+      112 |     errorCount = 0,
+      113 |   ) {
+
+      at packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:110:1228
+      at asyncGeneratorStep (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:114)
+      at _next (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:452)
+
+  ● ReactDOMServerIntegration › elements and children › renders a div with dangerouslySetInnerHTML text string with clean client render
+
+    expect(spy).toHaveBeenCalledTimes(expected)
+
+    Expected number of calls: 0
+    Received number of calls: 2
+
+      108 |   function renderIntoDom(
+      109 |     reactElement,
+    > 110 |     domElement,
+          |                ^
+      111 |     forceHydrate,
+      112 |     errorCount = 0,
+      113 |   ) {
+
+      at packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:110:1228
+      at asyncGeneratorStep (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:114)
+      at _next (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:452)
+
+  ● ReactDOMServerIntegration › elements and children › renders a div with dangerouslySetInnerHTML text string with client render on top of bad server markup
+
+    expect(spy).toHaveBeenCalledTimes(expected)
+
+    Expected number of calls: 1
+    Received number of calls: 3
+
+      108 |   function renderIntoDom(
+      109 |     reactElement,
+    > 110 |     domElement,
+          |                ^
+      111 |     forceHydrate,
+      112 |     errorCount = 0,
+      113 |   ) {
+
+      at packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:110:1228
+      at asyncGeneratorStep (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:114)
+      at _next (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:452)
+
+  ● ReactDOMServerIntegration › elements and children › renders a div with dangerouslySetInnerHTML element string with clean client render
+
+    expect(spy).toHaveBeenCalledTimes(expected)
+
+    Expected number of calls: 0
+    Received number of calls: 2
+
+      108 |   function renderIntoDom(
+      109 |     reactElement,
+    > 110 |     domElement,
+          |                ^
+      111 |     forceHydrate,
+      112 |     errorCount = 0,
+      113 |   ) {
+
+      at packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:110:1228
+      at asyncGeneratorStep (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:114)
+      at _next (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:452)
+
+  ● ReactDOMServerIntegration › elements and children › renders a div with dangerouslySetInnerHTML object with clean client render
+
+    expect(spy).toHaveBeenCalledTimes(expected)
+
+    Expected number of calls: 0
+    Received number of calls: 2
+
+      108 |   function renderIntoDom(
+      109 |     reactElement,
+    > 110 |     domElement,
+          |                ^
+      111 |     forceHydrate,
+      112 |     errorCount = 0,
+      113 |   ) {
+
+      at packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:110:1228
+      at asyncGeneratorStep (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:114)
+      at _next (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:452)
+
+FAIL packages/react-dom/src/client/__tests__/dangerouslySetInnerHTML-test.js
+  ● dangerouslySetInnerHTML › when the node has innerHTML property › sets innerHTML on it
+
+    Expected test not to call console.error().
+
+    If the warning is expected, test for it explicitly by:
+    1. Using the .toErrorDev() matcher, or...
+    2. Mock it out using spyOnDev(console, 'error') or spyOnProd(console, 'error'), and test that the warning occurs.
+
+    Trace: tranSPArent flag
+
+      61 |     }
+      62 |   }
+    > 63 |   console.trace('tranSPArent flag');
+         |           ^
+      64 |   node.innerHTML = (html: any);
+      65 | });
+      66 |
+
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/client/__tests__/dangerouslySetInnerHTML-test.js:19:27)
+      at console.newMethod [as error] (scripts/jest/setupTests.js:82:19)
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/client/__tests__/dangerouslySetInnerHTML-test.js:19:27)
+      at flushUnexpectedConsoleCalls (scripts/jest/setupTests.js:128:13)
+      at Object.flushAllUnexpectedConsoleCalls (scripts/jest/setupTests.js:139:5)
+
+FAIL packages/react-dom/src/client/__tests__/trustedTypes-test.internal.js
+  ● when Trusted Types are available in global object › should not stringify trusted values for dangerouslySetInnerHTML
+
+    Expected test not to call console.error().
+
+    If the warning is expected, test for it explicitly by:
+    1. Using the .toErrorDev() matcher, or...
+    2. Mock it out using spyOnDev(console, 'error') or spyOnProd(console, 'error'), and test that the warning occurs.
+
+    Trace: tranSPArent flag
+
+      61 |     }
+      62 |   }
+    > 63 |   console.trace('tranSPArent flag');
+         |           ^
+      64 |   node.innerHTML = (html: any);
+      65 | });
+      66 |
+
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/client/__tests__/trustedTypes-test.internal.js:72:16)
+      at console.newMethod [as error] (scripts/jest/setupTests.js:82:19)
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at setInitialDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:308:35)
+      at setInitialProperties (packages/react-dom/src/client/ReactDOMComponent.js:574:3)
+      at finalizeInitialChildren (packages/react-dom/src/client/ReactDOMHostConfig.js:295:47)
+      at completeWork (packages/react-reconciler/src/ReactFiberCompleteWork.new.js:1026:63)
+      at completeUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1883:57)
+      at performUnitOfWork (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1856:5)
+      at workLoopSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1744:5)
+      at renderRootSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1703:7)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1247:20)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSync (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1401:55)
+      at legacyCreateRootFromDOMContainer (packages/react-dom/src/client/ReactDOMLegacy.js:182:41)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:219:12)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/client/__tests__/trustedTypes-test.internal.js:72:16)
+      Trace: tranSPArent flag
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at updateDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:361:33)
+      at updateProperties (packages/react-dom/src/client/ReactDOMComponent.js:826:3)
+      at commitUpdate (packages/react-dom/src/client/ReactDOMHostConfig.js:458:43)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2203:58)
+      at recursivelyTraverseMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2076:7)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2255:9)
+      at commitMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2045:3)
+      at commitRootImpl (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:2163:53)
+      at commitRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1976:5)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1277:3)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSyncCallbacksOnlyInLegacyMode (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:47:5)
+      at scheduleUpdateOnFiber (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:654:71)
+      at updateContainer (packages/react-reconciler/src/ReactFiberReconciler.new.js:383:51)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:236:47)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/client/__tests__/trustedTypes-test.internal.js:82:16)
+      at console.newMethod [as error] (scripts/jest/setupTests.js:82:19)
+      at packages/react-dom/src/client/setInnerHTML.js:63:11
+      at updateDOMProperties (packages/react-dom/src/client/ReactDOMComponent.js:361:33)
+      at updateProperties (packages/react-dom/src/client/ReactDOMComponent.js:826:3)
+      at commitUpdate (packages/react-dom/src/client/ReactDOMHostConfig.js:458:43)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2203:58)
+      at recursivelyTraverseMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2076:7)
+      at commitMutationEffectsOnFiber (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2255:9)
+      at commitMutationEffects (packages/react-reconciler/src/ReactFiberCommitWork.new.js:2045:3)
+      at commitRootImpl (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:2163:53)
+      at commitRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1976:5)
+      at performSyncWorkOnRoot (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:1277:3)
+      at flushSyncCallbacks (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:66:22)
+      at flushSyncCallbacksOnlyInLegacyMode (packages/react-reconciler/src/ReactFiberSyncTaskQueue.new.js:47:5)
+      at scheduleUpdateOnFiber (packages/react-reconciler/src/ReactFiberWorkLoop.new.js:654:71)
+      at updateContainer (packages/react-reconciler/src/ReactFiberReconciler.new.js:383:51)
+      at legacyRenderSubtreeIntoContainer (packages/react-dom/src/client/ReactDOMLegacy.js:236:47)
+      at Object.render (packages/react-dom/src/client/ReactDOMLegacy.js:343:10)
+      at Object.<anonymous> (packages/react-dom/src/client/__tests__/trustedTypes-test.internal.js:82:16)
+      at flushUnexpectedConsoleCalls (scripts/jest/setupTests.js:128:13)
+      at Object.flushAllUnexpectedConsoleCalls (scripts/jest/setupTests.js:139:5)
+
+FAIL packages/react-dom/src/__tests__/ReactDOMServerIntegrationAttributes-test.js (157.049 s)
+  ● ReactDOMServerIntegration › property to attribute mapping › props with special meaning in React › renders no dangerouslySetInnerHTML attribute with clean client render
+
+    expect(spy).toHaveBeenCalledTimes(expected)
+
+    Expected number of calls: 0
+    Received number of calls: 2
+
+      108 |   function renderIntoDom(
+      109 |     reactElement,
+    > 110 |     domElement,
+          |                ^
+      111 |     forceHydrate,
+      112 |     errorCount = 0,
+      113 |   ) {
+
+      at packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:110:1228
+      at asyncGeneratorStep (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:114)
+      at _next (packages/react-dom/src/__tests__/utils/ReactDOMServerIntegrationTestUtils.js:10:452)

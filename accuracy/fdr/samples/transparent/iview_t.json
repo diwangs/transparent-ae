@@ -1,0 +1,11 @@
+{"#select":{"columns":[
+   {"kind":"String"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+   ["src/components/breadcrumb/breadcrumb-item.vue","16"]
+  ,["src/components/cascader/cascader.vue","48"]
+  ,["src/components/modal/confirm.js","69"]
+  ,["src/components/table/table.vue","36"]
+  ,["src/components/table/table.vue","35"]
+  ,["src/components/transfer/transfer.vue","16"]]
+ }}

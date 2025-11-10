@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Angular Reference Generation > should generate the correct Angular reference sink 1`] = `
+"
+    class AngularRefSink extends AngularSink {
+      AngularRefSink() {
+        exists(DataFlow::ClassNode c, DataFlow::ParameterNode refObject | 
+          exists(DataFlow::CallNode decorator | 
+            decorator = c.getADecorator()
+            and decorator = DataFlow::moduleMember(angularModuleName(), decoratorName()).getACall()
+          )
+          
+          and refObject = c.getConstructor().getAParameter()
+          and exists(DataFlow::CallNode paramDecorator | 
+            paramDecorator = refObject.getADecorator()
+            and paramDecorator = DataFlow::moduleMember(angularModuleName(), "Inject").getACall()
+            and paramDecorator.getAnArgument() = DataFlow::moduleMember(angularModuleName(), "ElementRef").getALocalUse()
+          )
+
+          and exists(DataFlow::PropRef refObjectNativeElement, DataFlow::PropRef refObjectNativeElementVuln | 
+            isPropagated(refObject, refObjectNativeElement, "nativeElement")
+            and isPropagated(refObjectNativeElement, refObjectNativeElementVuln, vulnNativeProp())
+            and isDomSink(refObjectNativeElementVuln.getBase(), this)
+          )
+        )
+      }
+    }
+  "
+`;

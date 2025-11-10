@@ -1,0 +1,11 @@
+{"#select":{"columns":[
+   {"kind":"String"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+   ["components/app-launcher/link.jsx","77"]
+  ,["components/avatar/index.jsx","119"]
+  ,["components/utilities/utility-icon/index.jsx","80"]
+  ,["components/vertical-navigation/private/item.jsx","38"]
+  ,["components/visual-picker/link.jsx","50"]
+  ,["components/welcome-mat/tile.jsx","153"]]
+ }}

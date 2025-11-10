@@ -1,0 +1,23 @@
+[
+  {
+    "id": "CVE-2024-27103-1",
+    "relativePath": "querybook/webapp/components/DataDocStatementExecution/StatementLog.tsx",
+    "startLine": 106
+  },{
+    "id": "CVE-2024-27103-2",
+    "relativePath": "querybook/webapp/components/Search/SearchResultItem.tsx",
+    "startLine": 169
+  },{
+    "id": "CVE-2024-27103-3",
+    "relativePath": "querybook/webapp/components/Search/SearchResultItem.tsx",
+    "startLine": 284
+  },{
+    "id": "CVE-2024-27103-4",
+    "relativePath": "querybook/webapp/components/Search/SearchResultItem.tsx",
+    "startLine": 384
+  },{
+    "id": "CVE-2024-27103-5",
+    "relativePath": "querybook/webapp/components/Search/SearchResultItem.tsx",
+    "startLine": 487
+  }
+]

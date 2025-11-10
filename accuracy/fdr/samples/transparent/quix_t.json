@@ -1,0 +1,19 @@
+{"#select":{"columns":[
+   {"kind":"String"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+   ["documentation/website/core/Footer.js","31"]
+  ,["documentation/website/core/Footer.js","28"]
+  ,["documentation/website/core/Footer.js","38"]
+  ,["documentation/website/core/Footer.js","41"]
+  ,["documentation/website/core/Footer.js","48"]
+  ,["documentation/website/core/Footer.js","51"]
+  ,["documentation/website/pages/en/index.js","33"]
+  ,["documentation/website/pages/en/index.js","54"]
+  ,["documentation/website/pages/en/index.js","155"]
+  ,["documentation/website/pages/en/index.js","156"]
+  ,["documentation/website/pages/en/index.js","168"]
+  ,["documentation/website/pages/en/users.js","23"]
+  ,["documentation/website/pages/en/users.js","24"]
+  ,["quix-frontend/client/src/components/User/UserAvatar.tsx","10"]]
+ }}

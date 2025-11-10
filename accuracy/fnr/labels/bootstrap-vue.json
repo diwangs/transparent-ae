@@ -1,0 +1,103 @@
+[
+  {
+    "id": "GHSA-c7pp-x73h-4m2v-1",
+    "relativePath": "src/components/card/card-body.js",
+    "startLine": 50
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-2",
+    "relativePath": "src/components/card/card-body.js",
+    "startLine": 57
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-3",
+    "relativePath": "src/components/card/card-footer.js",
+    "startLine": 44
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-4",
+    "relativePath": "src/components/card/card-header.js",
+    "startLine": 44
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-5",
+    "relativePath": "src/components/carousel/carousel-slide.js",
+    "startLine": 34
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-6",
+    "relativePath": "src/components/carousel/carousel-slide.js",
+    "startLine": 35
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-7",
+    "relativePath": "src/components/form-checkbox/form-checkbox-group.js",
+    "startLine": 39
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-8",
+    "relativePath": "src/components/form-group/form-group.js",
+    "startLine": 24
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-9",
+    "relativePath": "src/components/form-group/form-group.js",
+    "startLine": 72
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-10",
+    "relativePath": "src/components/form-group/form-group.js",
+    "startLine": 95
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-11",
+    "relativePath": "src/components/form-group/form-group.js",
+    "startLine": 117
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-12",
+    "relativePath": "src/components/form-radio/form-radio-group.js",
+    "startLine": 38
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-13",
+    "relativePath": "src/components/form-select/form-select.js",
+    "startLine": 24
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-14",
+    "relativePath": "src/components/input-group/input-group.js",
+    "startLine": 43
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-15",
+    "relativePath": "src/components/input-group/input-group.js",
+    "startLine": 68
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-16",
+    "relativePath": "src/components/nav/nav-item-dropdown.js",
+    "startLine": 27
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-17",
+    "relativePath": "src/components/progress/progress-bar.js",
+    "startLine": 7
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-18",
+    "relativePath": "src/components/table/table.js",
+    "startLine": 113
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-19",
+    "relativePath": "src/components/table/table.js",
+    "startLine": 168
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-20",
+    "relativePath": "src/components/table/table.js",
+    "startLine": 339
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-21",
+    "relativePath": "src/components/tabs/tabs.js",
+    "startLine": 31
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-22",
+    "relativePath": "src/components-extra/dropdown-select/dropdown-select.vue",
+    "startLine": 15
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-23",
+    "relativePath": "src/mixins/pagination.js",
+    "startLine": 123
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-24",
+    "relativePath": "src/mixins/pagination.js",
+    "startLine": 162
+  },{
+    "id": "GHSA-c7pp-x73h-4m2v-25",
+    "relativePath": "src/mixins/pagination.js",
+    "startLine": 184
+  }
+]

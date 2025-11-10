@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "relativePath": "src/components/breadcrumb/breadcrumb-item.vue",
+    "startLine": 16
+  },
+  {
+    "id": "2",
+    "relativePath": "src/components/cascader/cascader.vue",
+    "startLine": 48
+  },
+  {
+    "id": "3",
+    "relativePath": "src/components/modal/confirm.js",
+    "startLine": 69
+  },
+  {
+    "id": "4",
+    "relativePath": "src/components/modal/confirm.js",
+    "startLine": 95
+  },
+  {
+    "id": "5",
+    "relativePath": "src/components/table/table.vue",
+    "startLine": 36
+  },
+  {
+    "id": "6",
+    "relativePath": "src/components/table/table.vue",
+    "startLine": 35
+  },
+  {
+    "id": "7",
+    "relativePath": "src/components/transfer/transfer.vue",
+    "startLine": 16
+  }
+]

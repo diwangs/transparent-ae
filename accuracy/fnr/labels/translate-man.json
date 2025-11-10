@@ -1,0 +1,7 @@
+[
+  {
+    "id": "CVE-2019-13982",
+    "relativePath": "src/containers/outputBox/outputBox.vue",
+    "startLine": 4
+  }
+]

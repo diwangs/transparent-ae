@@ -1,0 +1,7 @@
+[
+  {
+    "id": "CVE-2023-30609",
+    "relativePath": "src/HtmlUtils.tsx",
+    "startLine": 625
+  }
+]

@@ -1,0 +1,1310 @@
+{
+  "$schema" : "https://json.schemastore.org/sarif-2.1.0.json",
+  "version" : "2.1.0",
+  "runs" : [ {
+    "tool" : {
+      "driver" : {
+        "name" : "CodeQL",
+        "organization" : "GitHub",
+        "semanticVersion" : "2.15.1",
+        "rules" : [ {
+          "id" : "yeet",
+          "name" : "yeet",
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "id" : "yeet",
+            "kind" : "path-problem"
+          }
+        } ]
+      }
+    },
+    "artifacts" : [ {
+      "location" : {
+        "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+        "index" : 0
+      }
+    }, {
+      "location" : {
+        "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/instance/lifecycle.ts",
+        "index" : 1
+      }
+    }, {
+      "location" : {
+        "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+        "index" : 2
+      }
+    } ],
+    "results" : [ {
+      "ruleId" : "yeet",
+      "ruleIndex" : 0,
+      "rule" : {
+        "id" : "yeet",
+        "index" : 0
+      },
+      "message" : {
+        "text" : "Potential flow"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 76,
+            "startColumn" : 20,
+            "endColumn" : 23
+          }
+        }
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/instance/lifecycle.ts",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 63,
+                  "startColumn" : 37,
+                  "endColumn" : 42
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/instance/lifecycle.ts",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 73,
+                  "startColumn" : 37,
+                  "endColumn" : 42
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 801,
+                  "startColumn" : 35,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 813,
+                  "startColumn" : 17,
+                  "endColumn" : 22
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 122,
+                  "startColumn" : 5,
+                  "endColumn" : 10
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 171,
+                  "startColumn" : 27,
+                  "endColumn" : 32
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 292,
+                  "startColumn" : 30,
+                  "endColumn" : 35
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 294,
+                  "startColumn" : 32,
+                  "endColumn" : 37
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7,
+                  "startColumn" : 50,
+                  "endColumn" : 55
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 15,
+                  "endColumn" : 20
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 15,
+                  "endColumn" : 25
+                }
+              },
+              "message" : {
+                "text" : "vnode.data"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 15,
+                  "endColumn" : 34
+                }
+              },
+              "message" : {
+                "text" : "vnode.data.domProps"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 15,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "vnode.data.domProps || {}"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 7,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "props"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 27,
+                  "startColumn" : 11,
+                  "endColumn" : 16
+                }
+              },
+              "message" : {
+                "text" : "props"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 27,
+                  "startColumn" : 11,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "props[key]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 27,
+                  "startColumn" : 5,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "cur"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 76,
+                  "startColumn" : 20,
+                  "endColumn" : 23
+                }
+              },
+              "message" : {
+                "text" : "cur"
+              }
+            }
+          } ]
+        } ]
+      }, {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/instance/lifecycle.ts",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 63,
+                  "startColumn" : 37,
+                  "endColumn" : 42
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/instance/lifecycle.ts",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 73,
+                  "startColumn" : 37,
+                  "endColumn" : 42
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 801,
+                  "startColumn" : 35,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 813,
+                  "startColumn" : 17,
+                  "endColumn" : 22
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 122,
+                  "startColumn" : 5,
+                  "endColumn" : 10
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 171,
+                  "startColumn" : 27,
+                  "endColumn" : 32
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 292,
+                  "startColumn" : 30,
+                  "endColumn" : 35
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 294,
+                  "startColumn" : 32,
+                  "endColumn" : 37
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7,
+                  "startColumn" : 50,
+                  "endColumn" : 55
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 15,
+                  "endColumn" : 20
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 15,
+                  "endColumn" : 25
+                }
+              },
+              "message" : {
+                "text" : "vnode.data"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 15,
+                  "endColumn" : 34
+                }
+              },
+              "message" : {
+                "text" : "vnode.data.domProps"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 15,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "vnode.data.domProps || {}"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 7,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "props"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 27,
+                  "startColumn" : 11,
+                  "endColumn" : 16
+                }
+              },
+              "message" : {
+                "text" : "props"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 27,
+                  "startColumn" : 11,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "props[key]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 27,
+                  "startColumn" : 5,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "cur"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 76,
+                  "startColumn" : 20,
+                  "endColumn" : 23
+                }
+              },
+              "message" : {
+                "text" : "cur"
+              }
+            }
+          } ]
+        } ]
+      }, {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/instance/lifecycle.ts",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 63,
+                  "startColumn" : 37,
+                  "endColumn" : 42
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/instance/lifecycle.ts",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 73,
+                  "startColumn" : 37,
+                  "endColumn" : 42
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 801,
+                  "startColumn" : 35,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 829,
+                  "startColumn" : 35,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 681,
+                  "startColumn" : 25,
+                  "endColumn" : 30
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 773,
+                  "startColumn" : 31,
+                  "endColumn" : 36
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 292,
+                  "startColumn" : 30,
+                  "endColumn" : 35
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 294,
+                  "startColumn" : 32,
+                  "endColumn" : 37
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7,
+                  "startColumn" : 50,
+                  "endColumn" : 55
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 15,
+                  "endColumn" : 20
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 15,
+                  "endColumn" : 25
+                }
+              },
+              "message" : {
+                "text" : "vnode.data"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 15,
+                  "endColumn" : 34
+                }
+              },
+              "message" : {
+                "text" : "vnode.data.domProps"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 15,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "vnode.data.domProps || {}"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 7,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "props"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 27,
+                  "startColumn" : 11,
+                  "endColumn" : 16
+                }
+              },
+              "message" : {
+                "text" : "props"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 27,
+                  "startColumn" : 11,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "props[key]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 27,
+                  "startColumn" : 5,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "cur"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 76,
+                  "startColumn" : 20,
+                  "endColumn" : 23
+                }
+              },
+              "message" : {
+                "text" : "cur"
+              }
+            }
+          } ]
+        } ]
+      }, {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/instance/lifecycle.ts",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 63,
+                  "startColumn" : 37,
+                  "endColumn" : 42
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/instance/lifecycle.ts",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 73,
+                  "startColumn" : 37,
+                  "endColumn" : 42
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 801,
+                  "startColumn" : 35,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 853,
+                  "startColumn" : 11,
+                  "endColumn" : 16
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 122,
+                  "startColumn" : 5,
+                  "endColumn" : 10
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 171,
+                  "startColumn" : 27,
+                  "endColumn" : 32
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 292,
+                  "startColumn" : 30,
+                  "endColumn" : 35
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 294,
+                  "startColumn" : 32,
+                  "endColumn" : 37
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7,
+                  "startColumn" : 50,
+                  "endColumn" : 55
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 15,
+                  "endColumn" : 20
+                }
+              },
+              "message" : {
+                "text" : "vnode"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 15,
+                  "endColumn" : 25
+                }
+              },
+              "message" : {
+                "text" : "vnode.data"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 15,
+                  "endColumn" : 34
+                }
+              },
+              "message" : {
+                "text" : "vnode.data.domProps"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 15,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "vnode.data.domProps || {}"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 7,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "props"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 27,
+                  "startColumn" : 11,
+                  "endColumn" : 16
+                }
+              },
+              "message" : {
+                "text" : "props"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 27,
+                  "startColumn" : 11,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "props[key]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 27,
+                  "startColumn" : 5,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "cur"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 76,
+                  "startColumn" : 20,
+                  "endColumn" : 23
+                }
+              },
+              "message" : {
+                "text" : "cur"
+              }
+            }
+          } ]
+        } ]
+      } ]
+    } ],
+    "columnKind" : "utf16CodeUnits",
+    "properties" : {
+      "semmle.formatSpecifier" : "sarifv2.1.0"
+    }
+  } ]
+}

@@ -1,0 +1,116 @@
+import fs from 'fs'
+import PrettyTable from 'prettytable'
+
+import { extrapolateMapping } from 'template-mapping/extrapolated-mapping'
+import { concreteMapping } from 'template-mapping/concrete-mapping'
+
+import { VUE2_PREFIX, generateVue2JsSyntax, generateVue2JsxSyntax, generateVue2Ref } from 'querygen/vue2'
+import { REACT_PREFIX, generateReactJsSyntax, generateReactJsxSyntax, generateReactRef } from 'querygen/react'
+import { ANGULAR_PREFIX, generateAngularRef } from 'querygen/angular'
+
+const DEST_DIR = '../../../qlpack/transparentsinks'
+
+const VUE_VANILLA_SINKS_SFC = [
+  '<nativeAttr>',
+  'v-html'
+]
+
+const REACT_VANILLA_SINKS_JSX = [
+  '<nativeAttr>',
+  'dangerouslySetInnerHTML'
+]
+
+const ANGULAR_VANILLA_SINKS = [
+  'renderer2.setProperty'
+]
+
+async function main() {
+  let vue2JsDiscoveredSinks = ["vnode.data.attrs.<nativeAttr>", "vnode.data.domProps.<nativeProp>", "vnode.data.ref"]
+  let ReactJsDiscoveredSinks = ["<nativeAttr>", "dangerouslySetInnerHTML", "ref"]
+  let AngularDiscoveredSinks = ["renderer2.setProperty", "ref"]
+
+  // Do template mapping analysis on Vue
+  // JSX -> extrapolated mapping for attrs and domProps, concrete mapping for ref
+  let vue2JsxDiscoveredMapping = {
+    ...extrapolateMapping('<div><input id="hehe" ></div>', vue2JsDiscoveredSinks[0].replace('<nativeAttr>', 'id'), 'hehe'),
+    ...extrapolateMapping('<div><input attrs-id="hehe" ></div>', vue2JsDiscoveredSinks[0].replace('<nativeAttr>', 'id'), 'hehe'),
+    ...extrapolateMapping('<div><input domProps-innerHTML="<p>hi</p>" ></div>', vue2JsDiscoveredSinks[1].replace('<nativeProp>', 'innerHTML'), '<p>hi</p>'),
+    ...extrapolateMapping('<div><input domPropsInnerHTML="<p>hi</p>" ></div>', vue2JsDiscoveredSinks[1].replace('<nativeProp>', 'innerHTML'), '<p>hi</p>'),
+    ...concreteMapping('<div ref="myRef"></div>', vue2JsDiscoveredSinks[2], 'myRef')
+  }
+  // SFC -> extrapolated mapping for attrs, concrete mapping for v-html and ref
+  let vue2SfcDiscoveredMapping = {
+    ...extrapolateMapping('<div><img src="https://foo.com/logo.png"></div>', vue2JsDiscoveredSinks[0].replace('<nativeAttr>', 'src'), 'https://foo.com/logo.png'),
+    ...concreteMapping('<template><div v-html="<p>hi</p>"></div></template>', vue2JsDiscoveredSinks[1].replace('<nativeProp>', 'innerHTML'), '<p>hi</p>'),
+    ...concreteMapping('<template><div ref="myRef"></div></template>', vue2JsDiscoveredSinks[2], 'myRef')
+  }
+
+  // Do template mapping analysis on React
+  let reactJsxDiscoveredMapping = {
+    ...extrapolateMapping('<div><input data-value="a value" ></div>', ReactJsDiscoveredSinks[0].replace('<nativeAttr>', 'data-value'), 'a value'),
+    ...concreteMapping(`<div dangerouslySetInnerHTML='{{__html: "<p>hi</p>"}}'></div>`, ReactJsDiscoveredSinks[1].replace('<nativeProp>', 'innerHTML'), '{{__html: "<p>hi</p>"}}'),
+    ...concreteMapping('<div ref="myRef"></div>', ReactJsDiscoveredSinks[2], 'myRef')
+  }
+
+  // Print all the discovered sinks
+  const table5 = new PrettyTable();
+  let rows = []
+  // Vue
+  for (const sink of vue2JsDiscoveredSinks) {
+    rows.push([sink.replace('vnode.data.', ''), 'Vue', 'JS-Syntax'])
+  }
+  for (const sink of Object.keys(vue2JsxDiscoveredMapping)) {
+    rows.push([sink, 'Vue', 'JSX-Syntax'])
+  }
+  for (const sink of Object.keys(vue2SfcDiscoveredMapping)) {
+    rows.push([sink, 'Vue', 'SFC-Syntax'])
+  }
+  // React
+  for (const sink of ReactJsDiscoveredSinks) {
+    rows.push([sink, 'React', 'JS-Syntax'])
+  }
+  for (const sink of Object.keys(reactJsxDiscoveredMapping)) {
+    rows.push([sink, 'React', 'JSX-Syntax'])
+  }
+  // Angular
+  for (const sink of AngularDiscoveredSinks) {
+    rows.push([sink, 'Angular', 'JS-Syntax'])
+  }
+  table5.create(['Discovered Sink', 'Framework', 'Syntax'], rows);
+  console.log('Table V')
+  table5.print();
+
+  // Generate CodeQL classes for novel sinks
+  const vue2JsPatterns = ["attrs.<nativeAttr>", "domProps.<nativeProp>"]
+  const vue2JsxPatterns = ["attrs-<nativeAttr>", "domProps-<nativeProp>"]
+  const isJsVue2Ref = true
+  const isHmlVue2Ref = true
+  const reactJsPatterns = ["<nativeAttr>"]
+  const reactJsxPatterns = ["<nativeAttr>"]
+  const isJsReactRef = true
+  const isHtmlReactRef = true
+
+  // Generate CodeQL classes to detect patterns in Vue applications
+  let vue2QueryString = VUE2_PREFIX
+  vue2QueryString += generateVue2JsSyntax(vue2JsPatterns)
+  vue2QueryString += generateVue2JsxSyntax(vue2JsxPatterns)
+  vue2QueryString += generateVue2Ref(isHmlVue2Ref, isJsVue2Ref)
+  fs.writeFileSync(`${DEST_DIR}/Vue2.qll`, vue2QueryString)
+
+  // Generate CodeQL classes to detect patterns in React applications
+  let reactQueryString = REACT_PREFIX
+  reactQueryString += generateReactJsSyntax(reactJsPatterns)
+  reactQueryString += generateReactJsxSyntax(reactJsxPatterns)
+  reactQueryString += generateReactRef(isHtmlReactRef, isJsReactRef)
+  fs.writeFileSync(`${DEST_DIR}/React.qll`, reactQueryString)
+
+  // Generate CodeQL classes to detect patterns in Angular applications
+  let angularQueryString = ANGULAR_PREFIX
+  angularQueryString += generateAngularRef()
+  fs.writeFileSync(`${DEST_DIR}/Angular.qll`, angularQueryString)
+}
+
+main().catch(err => {
+    console.error(err);
+    process.exit(1);
+});

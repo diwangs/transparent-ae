@@ -1,0 +1,7 @@
+[
+  {
+    "id": "CVE-2024-3570",
+    "relativePath": "frontend/src/components/WorkspaceChat/ChatContainer/ChatHistory/HistoricalMessage/index.jsx",
+    "startLine": 48
+  }
+]

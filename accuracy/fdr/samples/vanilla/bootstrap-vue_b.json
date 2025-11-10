@@ -1,0 +1,17 @@
+{"#select":{"columns":[
+   {"kind":"String"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+   ["src/components/aspect/aspect.js","63"]
+  ,["src/components/avatar/avatar-group.js","67"]
+  ,["src/components/badge/badge.js","39"]
+  ,["src/components/calendar/calendar.js","810"]
+  ,["src/components/carousel/carousel-slide.js","113"]
+  ,["src/components/card/card-footer.js","32"]
+  ,["src/components/collapse/collapse.js","248"]
+  ,["src/components/embed/embed.js","36"]
+  ,["src/components/link/link.js","201"]
+  ,["src/components/tabs/tab.js","169"]
+  ,["src/components/time/time.js","584"]
+  ,["src/icons/icon.js","50"]]
+ }}

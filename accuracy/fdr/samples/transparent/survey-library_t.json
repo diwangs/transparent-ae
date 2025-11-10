@@ -1,0 +1,9 @@
+{"#select":{"columns":[
+   {"kind":"String"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+  ["packages/survey-react-ui/src/custom-widget.tsx","62"]
+  ,["packages/survey-react-ui/src/image.tsx","51"]
+  ,["packages/survey-react-ui/src/string-editor.tsx","39"]
+  ,["packages/survey-react-ui/src/string-viewer.tsx","49"]]
+ }}

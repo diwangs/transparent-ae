@@ -1,0 +1,10 @@
+{"#select":{"columns":[
+   {"kind":"String"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+  ["packages/client-app/internal_packages/participant-profile/lib/sidebar-participant-profile.jsx","154"]
+  ,["packages/client-app/internal_packages/plugins/lib/package.jsx","47"]
+  ,["packages/client-app/internal_packages/thread-sharing/lib/thread-sharing-popover.jsx","125"]
+  ,["packages/client-app/src/components/attachment-items.jsx","294"]
+  ,["packages/client-app/src/components/retina-img.jsx","153"]]
+ }}

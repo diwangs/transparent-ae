@@ -1,0 +1,6 @@
+{"#select":{"columns":[
+   {"kind":"String"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+   ["packages/vssue/src/components/VssueComment.vue","55"]]
+ }}

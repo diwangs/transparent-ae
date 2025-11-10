@@ -1,0 +1,34 @@
+ FAIL  test/unit/modules/vdom/patch/hydration.spec.ts > vdom patch: hydration > should warn mismatching v-html
+Error: test case threw unexpected warnings:
+ - Trace: tranSPArent flag
+    at Array.updateDOMProps (/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/modules/dom-props.ts:74:15)
+    at invokeCreateHooks (/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts:294:19)
+    at createElm (/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts:171:9)
+    at Vue.patch [as __patch__] (/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/vdom/patch.ts:852:9)
+    at Vue._update (/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/instance/lifecycle.ts:73:19)
+    at Vue.updateComponent (/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/instance/lifecycle.ts:200:10)
+    at Watcher.get (/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/observer/watcher.ts:138:27)
+    at new Watcher (/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/observer/watcher.ts:127:47)
+    at Module.mountComponent (/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/core/instance/lifecycle.ts:220:3)
+    at Vue.default.$mount (/home/diwangs/Codes/1_PhD/2_proj/transparent/targets/vue2-src/vue/src/platforms/web/runtime/index.ts:41:10)
+ ❯ Array.updateDOMProps src/platforms/web/runtime/modules/dom-props.ts:74:15
+     72|       // some property updates can throw
+     73|       // e.g. `value` on <progress> w/ non-finite value
+     74|       console.trace('tranSPArent flag');
+       |               ^
+     75|       try {
+     76|         elm[key] = cur
+ ❯ invokeCreateHooks src/core/vdom/patch.ts:294:19
+ ❯ createElm src/core/vdom/patch.ts:171:9
+ ❯ Vue.patch [as __patch__] src/core/vdom/patch.ts:852:9
+ ❯ Vue._update src/core/instance/lifecycle.ts:73:19
+ ❯ Vue.updateComponent src/core/instance/lifecycle.ts:200:10
+ ❯ Watcher.get src/core/observer/watcher.ts:138:27
+ ❯ new Watcher src/core/observer/watcher.ts:127:47
+ ❯ Module.mountComponent src/core/instance/lifecycle.ts:220:3
+ ❯ Vue.default.$mount src/platforms/web/runtime/index.ts:41:10
+ ❯ test/helpers/to-have-warned.ts:112:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/53]⎯
+
+error Command failed with exit code 1.

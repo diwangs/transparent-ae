@@ -1,0 +1,7 @@
+[
+  {
+    "id": "CVE-2022-42225",
+    "relativePath": "src/views/settings/Terminal/Endpoint/EndpointList.vue",
+    "startLine": 3
+  }
+]

@@ -1,0 +1,13 @@
+{"#select":{"columns":[
+   {"kind":"String"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+  ["packages/survey-react-ui/src/components/file/file-item.tsx","46"]
+  ,["packages/survey-react-ui/src/custom-widget.tsx","62"]
+  ,["packages/survey-react-ui/src/image.tsx","37"]
+  ,["packages/survey-react-ui/src/reactSurvey.tsx","164"]
+  ,["packages/survey-react-ui/src/reactquestion_html.tsx","31"]
+  ,["packages/survey-react-ui/src/signaturepad.tsx","41"]
+  ,["packages/survey-react-ui/src/string-editor.tsx","39"]
+  ,["packages/survey-react-ui/src/string-viewer.tsx","49"]]
+ }}

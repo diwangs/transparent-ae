@@ -1,0 +1,16 @@
+{
+  "name": "querygen",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^1.5.3"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2"
+  }
+}

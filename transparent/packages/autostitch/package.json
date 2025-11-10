@@ -1,0 +1,16 @@
+{
+  "name": "autostitch",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "5.4.4"
+  },
+  "scripts": {
+    "test": "vitest stitcher -t vue2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "vitest": "^1.5.3"
+  }
+}

@@ -1,0 +1,6 @@
+{"#select":{"columns":[
+   {"kind":"String"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+   ["src/components/launch-bar/search-provider.ts","31"]]
+ }}

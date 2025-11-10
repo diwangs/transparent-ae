@@ -1,0 +1,8 @@
+{"#select":{"columns":[
+   {"kind":"String"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+   ["frontend/src/pages/JobPage/JobPage.jsx","296"]
+  ,["frontend/src/pages/JobPage/JobPage.jsx","306"]
+  ,["frontend/src/pages/JobPage/JobPage.jsx","323"]]
+ }}

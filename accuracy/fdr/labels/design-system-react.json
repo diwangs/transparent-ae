@@ -1,0 +1,181 @@
+[
+  {
+    "id": "1",
+    "relativePath": "components/app-launcher/link.jsx",
+    "startLine": 77
+  },
+  {
+    "id": "2",
+    "relativePath": "components/app-launcher/tile.jsx",
+    "startLine": 161
+  },
+  {
+    "id": "3",
+    "relativePath": "components/avatar/index.jsx",
+    "startLine": 123
+  },
+  {
+    "id": "4",
+    "relativePath": "components/avatar/index.jsx",
+    "startLine": 119
+  },
+  {
+    "id": "5",
+    "relativePath": "components/carousel/private/carousel-item.jsx",
+    "startLine": 23
+  },
+  {
+    "id": "6",
+    "relativePath": "components/carousel/private/carousel-item.jsx",
+    "startLine": 92
+  },
+  {
+    "id": "7",
+    "relativePath": "components/carousel/private/carousel-item.jsx",
+    "startLine": 31
+  },
+  {
+    "id": "8",
+    "relativePath": "components/carousel/private/carousel-item.jsx",
+    "startLine": 82
+  },
+  {
+    "id": "9",
+    "relativePath": "components/files/file.jsx",
+    "startLine": 165
+  },
+  {
+    "id": "10",
+    "relativePath": "components/files/more-files.jsx",
+    "startLine": 105
+  },
+  {
+    "id": "11",
+    "relativePath": "components/files/more-files.jsx",
+    "startLine": 94
+  },
+  {
+    "id": "12",
+    "relativePath": "components/files/private/file-figure.jsx",
+    "startLine": 21
+  },
+  {
+    "id": "13",
+    "relativePath": "components/files/private/file-figure.jsx",
+    "startLine": 42
+  },
+  {
+    "id": "14",
+    "relativePath": "components/global-header/private/dropdown-trigger.jsx",
+    "startLine": 111
+  },
+  {
+    "id": "15",
+    "relativePath": "components/global-header/private/dropdown-trigger.jsx",
+    "startLine": 115
+  },
+  {
+    "id": "16",
+    "relativePath": "components/global-header/profile.jsx",
+    "startLine": 71
+  },
+  {
+    "id": "17",
+    "relativePath": "components/global-header/profile.jsx",
+    "startLine": 56
+  },{
+    "id": "18",
+    "relativePath": "components/global-navigation-bar/link.jsx",
+    "startLine": 75
+  },
+  {
+    "id": "19",
+    "relativePath": "components/global-navigation-bar/link.jsx",
+    "startLine": 34
+  },
+  {
+    "id": "20",
+    "relativePath": "components/illustration/index.jsx",
+    "startLine": 35
+  },
+  {
+    "id": "21",
+    "relativePath": "components/illustration/index.jsx",
+    "startLine": 39
+  },
+  {
+    "id": "22",
+    "relativePath": "components/location-map/index.jsx",
+    "startLine": 146
+  },
+  {
+    "id": "23",
+    "relativePath": "components/lookup/private/item.jsx",
+    "startLine": 116
+  },
+  {
+    "id": "24",
+    "relativePath": "components/lookup/private/menu.jsx",
+    "startLine": 140
+  },
+  {
+    "id": "25",
+    "relativePath": "components/lookup/private/menu.jsx",
+    "startLine": 150
+  },
+  {
+    "id": "26",
+    "relativePath": "components/pill/index.jsx",
+    "startLine": 213
+  },
+  {
+    "id": "27",
+    "relativePath": "components/utilities/menu-list/index.jsx",
+    "startLine": 99
+  },
+  {
+    "id": "28",
+    "relativePath": "components/utilities/menu-list/item.jsx",
+    "startLine": 189
+  },
+  {
+    "id": "29",
+    "relativePath": "components/utilities/menu-list/item.jsx",
+    "startLine": 85
+  },
+  {
+    "id": "30",
+    "relativePath": "components/utilities/utility-icon/index.jsx",
+    "startLine": 31
+  },
+  {
+    "id": "31",
+    "relativePath": "components/utilities/utility-icon/index.jsx",
+    "startLine": 32
+  },
+  {
+    "id": "32",
+    "relativePath": "components/utilities/utility-icon/index.jsx",
+    "startLine": 80
+  },
+  {
+    "id": "33",
+    "relativePath": "components/vertical-navigation/private/item.jsx",
+    "startLine": 38
+  },
+  {
+    "id": "34",
+    "relativePath": "components/visual-picker/link.jsx",
+    "startLine": 50
+  },
+  {
+    "id": "35",
+    "relativePath": "components/welcome-mat/info-badge.jsx",
+    "startLine": 83
+  },
+  {
+    "id": "36",
+    "relativePath": "components/welcome-mat/tile.jsx",
+    "startLine": 153
+  }
+]

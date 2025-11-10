@@ -1,0 +1,16 @@
+{
+  "name": "transparent",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "targets/*"
+  ],
+  "dependencies": {
+    "turbo": "^1.11.3"
+  },
+  "scripts": {
+    "patch": "scripts/patch_codeql_extractor.sh"
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
+}

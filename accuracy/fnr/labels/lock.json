@@ -1,0 +1,7 @@
+[
+  {
+    "id": "CVE-2020-15119",
+    "relativePath": "src/i18n.js",
+    "startLine": 18
+  }
+]

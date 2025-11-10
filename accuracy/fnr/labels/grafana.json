@@ -1,0 +1,7 @@
+[
+  {
+    "id": "CVE-2023-22462",
+    "relativePath": "public/app/core/components/PluginHelp/PluginHelp.tsx",
+    "startLine": 81
+  }
+]

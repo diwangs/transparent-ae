@@ -1,0 +1,12 @@
+{"#select":{"columns":[
+   {"kind":"String"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+  ["src/components/avatar/avatar.js","169"]
+  ,["src/components/badge/badge.js","39"]
+  ,["src/components/button-group/button-group.js","30"]
+  ,["src/components/card/card-body.js","53"]
+  ,["src/components/jumbotron/jumbotron.js","89"]
+  ,["src/icons/icon.js","50"]
+]
+}}

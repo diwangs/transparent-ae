@@ -1,0 +1,6 @@
+{"#select":{"columns":[
+   {"kind":"String"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+  ["src/components/TDialog/TDialogOverlayWrapperTransitionDialogContent.ts","108"]]
+ }}

@@ -1,0 +1,9 @@
+[submodule "targets/vue2-src/vue"]
+	path = targets/vue2-src/vue
+	url = https://github.com/vuejs/vue
+[submodule "targets/angular-src/angular"]
+	path = targets/angular-src/angular
+	url = https://github.com/angular/angular
+[submodule "targets/react-src/react"]
+	path = targets/react-src/react
+	url = https://github.com/facebook/react

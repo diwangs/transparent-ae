@@ -1,0 +1,9 @@
+{
+    "name": "vue2-src",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+      "build": "scripts/build_db.sh"
+    }
+  }
+  

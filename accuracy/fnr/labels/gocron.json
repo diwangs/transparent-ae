@@ -1,0 +1,7 @@
+[
+  {
+    "id": "CVE-2022-40365",
+    "relativePath": "web/vue/src/pages/taskLog/list.vue",
+    "startLine": 91
+  }
+]

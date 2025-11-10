@@ -1,0 +1,7 @@
+[
+  {
+    "id": "CVE-2021-31712",
+    "relativePath": "src/decorators/Link/index.js",
+    "startLine": 35
+  }
+]

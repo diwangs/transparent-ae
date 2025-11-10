@@ -1,0 +1,11 @@
+[
+  {
+    "id": "CVE-2024-8863",
+    "relativePath": "aim/web/ui/src/modules/BaseExplorer/components/TextBox/TextBox.tsx",
+    "startLine": 39
+  },{
+    "id": "CVE-2024-6578",
+    "relativePath": "aim/web/ui/src/pages/RunDetail/RunLogsTab/LogRow.tsx",
+    "startLine": 21
+  }
+]

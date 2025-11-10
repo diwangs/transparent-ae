@@ -1,0 +1,6 @@
+{"#select":{"columns":[
+   {"kind":"String"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+   ["src/elements/x-form-label/index.vue","4"]]
+ }}

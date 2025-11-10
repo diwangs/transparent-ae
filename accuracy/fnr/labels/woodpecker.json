@@ -1,0 +1,7 @@
+[
+  {
+    "id": "CVE-2022-29947",
+    "relativePath": "web/src/components/repo/build/BuildLog.vue",
+    "startLine": 14
+  }
+]

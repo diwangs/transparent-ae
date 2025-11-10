@@ -1,0 +1,7 @@
+[
+  {
+    "id": "CVE-2024-38527",
+    "relativePath": "src/components/DiagramFrame/SeqDiagram/MessageLayer/Block/Statement/Comment/Comment.vue",
+    "startLine": 5
+  }
+]
