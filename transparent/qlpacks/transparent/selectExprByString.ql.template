@@ -1,0 +1,13 @@
+import javascript
+
+from DataFlow::Node sink, string filepath, int sl, int el, int sc, int ec, int ssl, int sel, int ssc, int sec
+where exists(Stmt enclosingStmt | sink.asExpr().getEnclosingStmt() = enclosingStmt | 
+    // input
+    sink.asExpr().toString() = "{{sinkExpr}}" 
+    and sink.asExpr().getEnclosingStmt().toString() = "{{enclosingStmt}}" 
+    
+    // output
+    and sink.hasLocationInfo(filepath, sl, el, sc, ec)
+    and enclosingStmt.getLocation().hasLocationInfo(_, ssl, sel, ssc, sec)
+)
+select sink, filepath, sl, el, sc, ec, ssl, sel, ssc, sec

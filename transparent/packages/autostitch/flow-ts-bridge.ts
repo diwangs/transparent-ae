@@ -5,7 +5,7 @@
  * After that, we also need to convert stitches from Flow to TS.
  */
 
-import { CallEdge, ExprDesc } from "../utils/location"
+import { CallNode, ExprDesc } from "../utils/location"
 import { execQueryTemplate } from "../utils/codeql_driver"
 import { removeTypecast, translateFilepath } from "../utils/ts_utils"
 
@@ -17,6 +17,7 @@ import { removeTypecast, translateFilepath } from "../utils/ts_utils"
  * TODO: Use TypeScript module instead
  * https://stackoverflow.com/questions/17965572/compile-a-typescript-string-to-a-javascript-string-programmatically
  * 
+ * Uses `selectExprByString.ql.template
  * 
  * @param exprsDesc Array of ExprDesc (from `listSinks()`)
  * @returns Array of `ExprLocation` containing the location info in the source
@@ -24,12 +25,13 @@ import { removeTypecast, translateFilepath } from "../utils/ts_utils"
  */
 export function tsToFlow(exprsDesc: ExprDesc[]): ExprDesc[] {
     const reactDbJsDir = '../../build/codeql-db/react-src'
+    const templatePath = '../../qlpacks/transparent/selectExprByString.ql.template'
 
     // Search sinks in ts src
     // TODO: use filepath too instead of enclosingStmt
     // TODO: run this in parallel? (low priority)
     const result = exprsDesc.map((sink) => {
-        const queryResult = execQueryTemplate(reactDbJsDir, '../../qlpacks/transparent/searchNode.ql.template', {
+        const queryResult = execQueryTemplate(reactDbJsDir, templatePath, {
             "sinkExpr": removeTypecast(sink.expr.stringValue),
             "enclosingStmt": removeTypecast(sink.enclosingStmt.stringValue), 
         })
@@ -82,49 +84,49 @@ export function tsToFlow(exprsDesc: ExprDesc[]): ExprDesc[] {
  * @param dbDir 
  * @param callEdgesSet 
  */
-export function flowToTS(dbDir: string, callEdgesSetFlow: Set<CallEdge[]>): Set<CallEdge[]> {
-    let callEdgeCache = {}
+export function flowToTS(dbDir: string, callEdgesSetFlow: Set<CallNode[]>): Set<CallNode[]> {
+    let callNodeCache = {}
     
-    const callEdgesSet = Array.from(callEdgesSetFlow).map((callEdgesSrc, idx) => {
+    const callNodesSet = Array.from(callEdgesSetFlow).map((callEdgesSrc, idx) => {
         console.log(`Postprocessing trace ${idx + 1}/${callEdgesSetFlow.size}`)
 
-        const callEdges = callEdgesSrc.map((callEdgeSrc, idx) => {
+        const callNodes = callEdgesSrc.map((callNodeStr, idx) => {
             // Optimization: Skip if tests
-            if (callEdgeSrc.filepath.includes('test') 
-                || callEdgeSrc.filepath.includes('Test')
-                || callEdgeSrc.filepath.includes('jest')
-                || callEdgeSrc.filepath.includes('node_modules')) return callEdgeSrc
+            if (callNodeStr.filepath.includes('test') 
+                || callNodeStr.filepath.includes('Test')
+                || callNodeStr.filepath.includes('jest')
+                || callNodeStr.filepath.includes('node_modules')) return callNodeStr
 
             // Optimization: Cache
-            const callEdgeSrcStr = JSON.stringify(callEdgeSrc)
-            if (callEdgeSrcStr in callEdgeCache) return callEdgeCache[callEdgeSrcStr]
-            callEdgeCache[callEdgeSrcStr] = callEdgeSrc
+            const callNodeStrStr = JSON.stringify(callNodeStr)
+            if (callNodeStrStr in callNodeCache) return callNodeCache[callNodeStrStr]
+            callNodeCache[callNodeStrStr] = callNodeStr
 
             // Get the invoke expression based on call edge in the Flow DB
             // Should have `expr` and `enclosingFunc`
-            const invkDesc: ExprDesc | null = getInvkDesc(callEdgeSrc, idx === 0)
+            const invkDesc: ExprDesc | null = getInvkDesc(callNodeStr, idx === 0)
             if (invkDesc === null) {
-                console.warn(`Empty invkDesc for ${callEdgeSrc.stringValue} (${callEdgeSrc.filepath}:${callEdgeSrc.startLine})`)
+                console.warn(`Empty invkDesc for ${callNodeStr.stringValue} (${callNodeStr.filepath}:${callNodeStr.startLine})`)
                 // Cache this too to prevent multiple queries
-                return callEdgeSrc
+                return callNodeStr
             }
 
             // Get the call edge based on the invoke expression in the TS DB
             invkDesc.expr.filepath = translateFilepath(invkDesc.expr.filepath)
-            const callEdge: CallEdge | null = getCallEdgeFromInvkDesc(dbDir, invkDesc, idx === 0)
-            if (callEdge === null) {
+            const callNode: CallNode | null = getCallNode(dbDir, invkDesc, idx === 0)
+            if (callNode === null) {
                 console.warn(`Cannot find call edge for ${invkDesc.expr.stringValue}`)
-                return callEdgeSrc
+                return callNodeStr
             }
 
             // Cache and return
-            return callEdge
+            return callNode
         })
 
-        return callEdges
+        return callNodes
     })
 
-    return new Set(callEdgesSet)
+    return new Set(callNodesSet)
 }
 
 /**
@@ -134,31 +136,33 @@ export function flowToTS(dbDir: string, callEdgesSetFlow: Set<CallEdge[]>): Set<
  * 
  * Used to provide information to the flow-to-ts translator.
  * 
- * @param callEdge 
+ * Uses `selectExprByCallNode.ql.template` or `selectInvokeExprByCallNode.ql.template`
+ * 
+ * @param callNode 
  * @param isFirst - If true, will search for a `Node` instead of `InvokeNode`.
  *              This is used for the first call edge (sink) in the stack trace.
  *              Default is false.
  * @returns null if not found
  */
-export function getInvkDesc(callEdge: CallEdge, isFirst: boolean = false): ExprDesc | null {
+function getInvkDesc(callNode: CallNode, isFirst: boolean = false): ExprDesc | null {
     const flowDbDir = '../../build/codeql-db/react-src'
     const templatePath = isFirst 
-        ? '../../qlpacks/transparent/searchExprByCallEdge.ql.template'
-        : '../../qlpacks/transparent/searchInvokeExprByCallEdge.ql.template'
+        ? '../../qlpacks/transparent/selectExprByCallNode.ql.template'
+        : '../../qlpacks/transparent/selectInvokeExprByCallNode.ql.template'
 
     const results = execQueryTemplate(flowDbDir, templatePath, {
-        stringValue: callEdge.stringValue,
-        filepath: callEdge.filepath,
-        startLine: callEdge.startLine,
+        stringValue: callNode.stringValue,
+        filepath: callNode.filepath,
+        startLine: callNode.startLine,
     })
 
     // Get the first (and hopefully only) result
     if (results.length === 0) {
-        // console.warn(`No enclosing function found for ${callEdge.stringValue}`)
+        // console.warn(`No enclosing function found for ${callNode.stringValue}`)
         return null
     }
     if (!isFirst && results.length > 1) {
-        console.warn(`Multiple enclosing function found for ${callEdge.stringValue}`)
+        console.warn(`Multiple enclosing function found for ${callNode.stringValue}`)
     }
     const result = results[0]
 
@@ -167,7 +171,7 @@ export function getInvkDesc(callEdge: CallEdge, isFirst: boolean = false): ExprD
         // !isFirst -> InvokeNode.getCalleeName
         // isFirst -> Node.asExpr
         stringValue: result['stringValue'], 
-        filepath: callEdge.filepath,
+        filepath: callNode.filepath,
         startLine: result['sl'],
         endLine: result['el'],
         startCol: result['sc'],
@@ -176,7 +180,7 @@ export function getInvkDesc(callEdge: CallEdge, isFirst: boolean = false): ExprD
 
     const enclosingStmt = {
         stringValue: result['enclosingStmtStringValue'],
-        filepath: callEdge.filepath,
+        filepath: callNode.filepath,
         startLine: result['ssl'],
         endLine: result['sel'],
         startCol: result['ssc'],
@@ -184,8 +188,8 @@ export function getInvkDesc(callEdge: CallEdge, isFirst: boolean = false): ExprD
     }
 
     const enclosingFunc = {
-        stringValue: callEdge.stringValue,
-        filepath: callEdge.filepath,
+        stringValue: callNode.stringValue,
+        filepath: callNode.filepath,
         startLine: result['sl'], // Dummy value
     }
 
@@ -198,6 +202,8 @@ export function getInvkDesc(callEdge: CallEdge, isFirst: boolean = false): ExprD
  * 
  * Used to search for the result of the flow-to-ts translator
  * 
+ * Uses `selectStartLineByExpr.ql.template` or `selectStartLineByInvokeExpr.ql.template`
+ * 
  * @param dbDir
  * @param invkDesc
  * @param isFirst - If true, will search for a `Node.asExpr` instead of 
@@ -205,11 +211,11 @@ export function getInvkDesc(callEdge: CallEdge, isFirst: boolean = false): ExprD
 *                   edge (sink) in the stack trace. Default is false.
  * @returns null if not found
  */
-export function getCallEdgeFromInvkDesc(dbDir: string, invkDesc: ExprDesc, isFirst: boolean = false): CallEdge | null {
+export function getCallNode(dbDir: string, invkDesc: ExprDesc, isFirst: boolean = false): CallNode | null {
     const filepath = invkDesc.expr.filepath
     const templatePath = isFirst 
-        ? '../../qlpacks/transparent/searchFuncByExpr.ql.template'
-        : '../../qlpacks/transparent/searchFuncByInvokeExpr.ql.template'
+        ? '../../qlpacks/transparent/selectStartLineByExpr.ql.template'
+        : '../../qlpacks/transparent/selectStartLineByInvokeExpr.ql.template'
 
     const queryData = {
         filepath: filepath,
@@ -232,11 +238,11 @@ export function getCallEdgeFromInvkDesc(dbDir: string, invkDesc: ExprDesc, isFir
     const result = results[0]
 
     // Format result
-    const callEdge: CallEdge = {
+    const callNode: CallNode = {
         filepath: filepath,
         stringValue: invkDesc.enclosingFunc.stringValue,
         startLine: result['sl']
     }
 
-    return callEdge
+    return callNode
 }

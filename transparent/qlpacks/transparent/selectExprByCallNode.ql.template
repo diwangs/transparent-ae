@@ -1,0 +1,25 @@
+import javascript
+
+from DataFlow::Node node, 
+    string stringValue, int sl, int el, int sc, int ec,
+    string enclosingStmtStringValue, int ssl, int sel, int ssc, int sec
+where exists(Function enclosingFunc, Stmt enclosingStmt
+    | 
+        node.asExpr().getEnclosingFunction() = enclosingFunc 
+        and node.asExpr().getEnclosingStmt() = enclosingStmt
+    | 
+    
+    // input
+    // Problem: anonymous function, but what other information can we use?
+    node.asExpr().getFile().getAbsolutePath().matches("%{{filepath}}")
+    and enclosingFunc.getName() = "{{stringValue}}" 
+    and node.asExpr().getLocation().getStartLine() = {{startLine}}
+
+    // output
+    // and node.(DataFlow::InvokeNode).getCalleeName() = stringValue
+    and node.asExpr().toString() = stringValue
+    and node.hasLocationInfo(_, sl, el, sc, ec)
+    and enclosingStmt.toString() = enclosingStmtStringValue
+    and enclosingStmt.getLocation().hasLocationInfo(_, ssl, sel, ssc, sec)
+)
+select stringValue, sl, el, sc, ec, enclosingStmtStringValue, ssl, sel, ssc, sec

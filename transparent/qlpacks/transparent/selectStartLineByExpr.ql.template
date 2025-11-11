@@ -1,0 +1,19 @@
+import javascript
+
+from DataFlow::Node node, int sl
+where exists(Function enclosingFunc, Stmt enclosingStmt
+    | 
+        node.asExpr().getEnclosingFunction() = enclosingFunc
+        and node.asExpr().getEnclosingStmt() = enclosingStmt
+    | 
+
+    // input
+    node.asExpr().getFile().getAbsolutePath().matches("%{{filepath}}")
+    // and node.(DataFlow::InvokeNode).getCalleeName() = "{{stringValue}}" 
+    and node.asExpr().toString() = "{{stringValue}}" 
+    and enclosingFunc.getName() = "{{enclosingFuncStringValue}}"
+
+    // output
+    and node.asExpr().getLocation().getStartLine() = sl
+)
+select sl
