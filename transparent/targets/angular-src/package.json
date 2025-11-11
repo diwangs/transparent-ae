@@ -3,7 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-      "build": "scripts/build_db.sh"
+      "build": "scripts/build_db.sh",
+      "targetinstall": "pushd angular && yarn install --frozen-lockfile && popd"
     }
   }
   

@@ -1,0 +1,6 @@
+name: transparent
+groups: [javascript, test]
+extractor: javascript
+dependencies:
+  codeql/javascript-all: "2.6.1"
+tests: .

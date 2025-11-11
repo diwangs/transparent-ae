@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { autostitch, writeStitchesToFile } from '../stitcher';
+import { autostitch } from '../stitcher';
 import { tsToFlow, flowToTS } from '../flow-ts-bridge';
 
 describe('stitcher', () => {
@@ -16,7 +16,7 @@ describe('stitcher', () => {
             expect(stitches.length).toBe(22);
 
             // Should be in main, uncomment for debugging
-            writeStitchesToFile(stitches, '../../qlpacks/transparent/Stitches/Vue2.qll')
+            // writeStitchesToFile(stitches, '../../qlpacks/transparent/Stitches/Vue2.qll')
         })
     })
 
@@ -27,11 +27,11 @@ describe('stitcher', () => {
             const runTestCmd = "yarn test 2>&1"
             const traceFlag = `console.trace('tranSPArent flag')`
  
-            const result = autostitch(reactDbDir, reactSrcDir, runTestCmd, traceFlag, tsToFlow, flowToTS)
+            const stitches = autostitch(reactDbDir, reactSrcDir, runTestCmd, traceFlag, tsToFlow, flowToTS)
             // console.log(result)
             // console.log(result.length)
 
-            expect(result.length).toBeGreaterThanOrEqual(140);
+            expect(stitches.length).toBeGreaterThanOrEqual(140);
         })
     })
 
@@ -42,7 +42,6 @@ describe('stitcher', () => {
             const angularSrcDir = '../../targets/angular-src/angular'
             const angularDbDir = '../../build/codeql-db/angular-src'
             const runTestCmd = "distrobox enter -r ubuntu -- ../scripts/test_on_ubuntu.sh 2>&1"
-            // const runTestCmd = `distrobox enter -r ubuntu -- echo yey`
             const traceFlag = `console.error(new Error('tranSPArent flag'))`
             
             const stitches = autostitch(angularDbDir, angularSrcDir, runTestCmd, traceFlag)

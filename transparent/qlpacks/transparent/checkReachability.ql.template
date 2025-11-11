@@ -1,0 +1,28 @@
+import javascript 
+import DataFlow::PathGraph
+
+class PiecewiseTaintTracking extends TaintTracking::Configuration {
+    PiecewiseTaintTracking() { this = "PiecewiseTaintTracking" }
+
+    override predicate isSource(DataFlow::Node node) {
+        exists(DataFlow::InvokeNode invkNode, Location loc | loc = invkNode.asExpr().getLocation() |
+            loc.getFile().getAbsolutePath().matches("%{{srcPath}}") and
+            loc.getStartLine() = {{srcSl}} and 
+            invkNode.getArgument(0) = node
+        )
+    }
+
+    override predicate isSink(DataFlow::Node node) {
+        exists(DataFlow::Node sinkNode, Location sinkLoc | sinkLoc = sinkNode.asExpr().getLocation() |
+            sinkLoc.getFile().getAbsolutePath().matches("%{{dstPath}}") and
+            sinkLoc.getStartLine() = {{dstSl}} and 
+            sinkNode.asExpr().getEnclosingFunction().getParameter(0) = node.asExpr()
+        )
+    }
+}
+
+// This is technically a path problem but since the filename doesn't start with
+// `track`, it won't be interpreted as such by the JS CodeQL driver.
+from PiecewiseTaintTracking cfg, DataFlow::PathNode source, DataFlow::PathNode sink
+where cfg.hasFlowPath(source, sink)
+select sink, source, sink, "Tainted data flows from here to sink"

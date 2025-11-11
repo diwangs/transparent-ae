@@ -11,6 +11,7 @@
     "patch": "scripts/patch_src.sh",
     "build:src": "scripts/build_db_src.sh",
     "build:ts": "scripts/build_db_ts.sh",
-    "build": "yarn convert && yarn patch && yarn build:src && yarn build:ts"
+    "build": "yarn convert && yarn patch && yarn build:src && yarn build:ts",
+    "targetinstall": "pushd react && yarn install --frozen-lockfile && popd"
   }
 }
