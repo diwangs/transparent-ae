@@ -7,12 +7,10 @@
     "@khanacademy/flow-to-ts": "^0.5.2"
   },
   "scripts": {
-    "react-src:ts-convert": "mkdir -p ../../build/react-src-ts && cp -r react/packages/* ../../build/react-src-ts && rm -rf ../../build/react-src-ts/react-devtools-extensions ../../build/react-src-ts/jest-react && flow-to-ts ../../build/react-src-ts/**/*.js --write --delete-source --inline-utility-types && flow-to-ts ../../build/react-src-ts/**/*.js --write --delete-source --inline-utility-types",
-    "react-src-ts:patch": "cp patch/tsconfig.json ../../build/react-src-ts",
-    "react-src-ts:db-create": "mkdir -p ../../build/codeql-db && codeql database create --search-path=../../codeql --language javascript --source-root ../../build/react-src-ts --overwrite ../../build/codeql-db/react-src-ts",
-    "react-src:db-create": "mkdir -p ../../build/codeql-db && codeql database create --search-path=../../codeql --language javascript --source-root react/packages --overwrite ../../build/codeql-db/react-src",
     "convert": "scripts/convert_src.sh",
-    "build": "scripts/build_db.sh",
-    "build:src": "scripts/build_db_src.sh"
+    "patch": "scripts/patch_src.sh",
+    "build:src": "scripts/build_db_src.sh",
+    "build:ts": "scripts/build_db_ts.sh",
+    "build": "yarn convert && yarn patch && yarn build:src && yarn build:ts"
   }
 }
