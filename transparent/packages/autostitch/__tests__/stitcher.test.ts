@@ -1,6 +1,15 @@
+import { execSync } from 'child_process';
 import { describe, expect, it } from 'vitest';
 import { autostitch } from '../stitcher';
 import { tsToFlow, flowToTS } from '../flow-ts-bridge';
+
+let isNixOS = false;
+try {
+    const unameOutput = execSync('uname -a').toString().trim();
+    isNixOS = unameOutput.includes('NixOS');
+} catch (error) {
+    console.error('Error detecting OS:', error);
+}
 
 describe('stitcher', () => {
     describe('vue2', () => {
@@ -13,7 +22,7 @@ describe('stitcher', () => {
             const stitches = autostitch(vueDbDir, vueSrcDir, runTestCmd, traceFlag)
             
             // Should produce 22 stitches (from 42 unique stack traces)
-            expect(stitches.length).toBe(22);
+            expect(stitches.length).toBe(22); // ~ 7 minutes
 
             // Should be in main, uncomment for debugging
             // writeStitchesToFile(stitches, '../../qlpacks/transparent/Stitches/Vue2.qll')
@@ -28,14 +37,12 @@ describe('stitcher', () => {
             const traceFlag = `console.trace('tranSPArent flag')`
  
             const stitches = autostitch(reactDbDir, reactSrcDir, runTestCmd, traceFlag, tsToFlow, flowToTS)
-            // console.log(result)
-            // console.log(result.length)
 
-            expect(stitches.length).toBeGreaterThanOrEqual(140);
+            expect(stitches.length).toBeGreaterThanOrEqual(140); // ~ 1 hour
         })
     })
 
-    describe.skip('angular', () => {
+    describe.skipIf(isNixOS)('angular', () => {
         it('should produce 156 stitches on Angular', () => {
             const angularSrcDir = '../../targets/angular-src/angular'
             const angularDbDir = '../../build/codeql-db/angular-src'
@@ -49,9 +56,9 @@ describe('stitcher', () => {
         })
     })
 
-    // Use podman to run this test (don't run it in the VSCode)
+    // If NixOS, use podman to run this test (don't run it in the VSCode)
     // This assumes that the container exists, do `distrobox create -r -i ubuntu:latest ubuntu`
-    describe.skip('angular-nixos', () => {
+    describe.runIf(isNixOS)('angular-nixos', () => {
         it('should produce 156 stitches on Angular (through Ubuntu Distrobox)', () => {
             const angularSrcDir = '../../targets/angular-src/angular'
             const angularDbDir = '../../build/codeql-db/angular-src'
