@@ -35,6 +35,20 @@ describe('stitcher', () => {
         })
     })
 
+    describe.skip('angular', () => {
+        it('should produce 156 stitches on Angular', () => {
+            const angularSrcDir = '../../targets/angular-src/angular'
+            const angularDbDir = '../../build/codeql-db/angular-src'
+            const runTestCmd = "yarn test //packages/core/test //packages/common/test 2>&1"
+            const traceFlag = `console.error(new Error('tranSPArent flag'))`
+            
+            const stitches = autostitch(angularDbDir, angularSrcDir, runTestCmd, traceFlag)
+            
+            // Should produce 140 stitches
+            expect(stitches.length).toBeGreaterThanOrEqual(140);
+        })
+    })
+
     // Use podman to run this test (don't run it in the VSCode)
     // This assumes that the container exists, do `distrobox create -r -i ubuntu:latest ubuntu`
     describe.skip('angular-nixos', () => {
@@ -45,8 +59,8 @@ describe('stitcher', () => {
             const traceFlag = `console.error(new Error('tranSPArent flag'))`
             
             const stitches = autostitch(angularDbDir, angularSrcDir, runTestCmd, traceFlag)
-            
-            // Should produce 22 stitches (from 42 unique stack traces)
+
+            // Should produce 140 stitches
             expect(stitches.length).toBeGreaterThanOrEqual(140);
         })
     })

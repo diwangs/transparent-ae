@@ -104,7 +104,7 @@ export function autostitch(dbDir: string, srcDir: string, runTestCmd: string, tr
  * Function to get all the DOM sinks in a CodeQL database.
  * The result should be descriptive enough to do transpilation (e.g. React).
  * 
- * Uses `listSinks.ql`
+ * Uses `selectSinks.ql`
  * 
  * @param dbPath path to the CodeQL database
  * @returns Array of objects containing the location info in
@@ -112,7 +112,7 @@ export function autostitch(dbDir: string, srcDir: string, runTestCmd: string, tr
  */
 export function listSinks(dbDir: string): ExprDesc[] {
     // TODO: change this to all sinks
-    const queryPath = '../../qlpacks/transparent/listSinks.ql'
+    const queryPath = '../../qlpacks/transparent/selectSinks.ql'
     const rawResult = execQueryFile(dbDir, queryPath)
 
     const result: ExprDesc[] = rawResult.map((sink) => {
