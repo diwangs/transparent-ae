@@ -48,7 +48,7 @@ describe('stitcher', () => {
         it('should produce 96 stitches on Angular', () => {
             const angularSrcDir = '../../targets/angular-src/angular'
             const angularDbDir = '../../build/codeql-db/angular-src'
-            const runTestCmd = "yarn test //packages/core/test //packages/common/test 2>&1"
+            const runTestCmd = "yarn test --cache_test_results=no //packages/core/test //packages/common/test 2>&1"
             const traceFlag = `console.error(new Error('tranSPArent flag'))`
             
             const stitches = autostitch(angularDbDir, angularSrcDir, runTestCmd, traceFlag)

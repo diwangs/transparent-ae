@@ -47,7 +47,7 @@ async function main() {
   const angularDbDir = '../../build/codeql-db/angular-src'
   const angularRunTestCmd = isNixOS()
     ? "distrobox enter ubuntu -- ../scripts/test_on_ubuntu.sh 2>&1" 
-    : "yarn test //packages/core/test //packages/common/test 2>&1"
+    : "yarn test --cache_test_results=no //packages/core/test //packages/common/test 2>&1"
   const angularTraceFlag = `console.error(new Error('tranSPArent flag'))`
   const angularStitches = autostitch(angularDbDir, angularSrcDir, angularRunTestCmd, angularTraceFlag)
   writeStitchesToFile(angularStitches, '../../qlpacks/transparent/Stitches/Angular.qll')
