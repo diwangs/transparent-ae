@@ -1,6 +1,6 @@
 import { execSync } from 'child_process';
 import { describe, expect, it } from 'vitest';
-import { autostitch } from '../stitcher';
+import { autostitch, writeStitchesToFile } from '../stitcher';
 import { tsToFlow, flowToTS } from '../flow-ts-bridge';
 
 let isNixOS = false;
@@ -57,13 +57,13 @@ describe('stitcher', () => {
         })
     })
 
-    // If NixOS, use podman to run this test (don't run it in the VSCode)
-    // This assumes that the container exists, do `distrobox create -r -i ubuntu:24.04 ubuntu`
+    // If NixOS, use podman to run this test (and don't run it inside flatpak)
+    // This assumes that the container exists, do `distrobox create -i ubuntu:24.04 ubuntu`
     describe.runIf(isNixOS)('angular-nixos', () => {
         it('should produce 96 stitches on Angular (through Ubuntu Distrobox)', () => {
             const angularSrcDir = '../../targets/angular-src/angular'
             const angularDbDir = '../../build/codeql-db/angular-src'
-            const runTestCmd = "distrobox enter -r ubuntu -- ../scripts/test_on_ubuntu.sh 2>&1"
+            const runTestCmd = "distrobox enter ubuntu -- ../scripts/test_on_ubuntu.sh 2>&1"
             const traceFlag = `console.error(new Error('tranSPArent flag'))`
             
             const stitches = autostitch(angularDbDir, angularSrcDir, runTestCmd, traceFlag) 

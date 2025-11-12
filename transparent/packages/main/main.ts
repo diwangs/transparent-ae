@@ -28,13 +28,6 @@ const ANGULAR_VANILLA_SINKS = [
 
 async function main() {
   // Do autostitch
-  let isNixOS = false;
-  try {
-      const unameOutput = execSync('uname -a').toString().trim();
-      isNixOS = unameOutput.includes('NixOS');
-  } catch (error) {
-      console.error('Error detecting OS:', error);
-  }
   // Vue2
   const vue2SrcDir = '../../targets/vue2-src/vue'
   const vue2DbDir = '../../build/codeql-db/vue2-src'
@@ -52,8 +45,8 @@ async function main() {
   // Angular
   const angularSrcDir = '../../targets/angular-src/angular'
   const angularDbDir = '../../build/codeql-db/angular-src'
-  const angularRunTestCmd = isNixOS 
-    ? "distrobox enter -r ubuntu -- ../scripts/test_on_ubuntu.sh 2>&1" 
+  const angularRunTestCmd = isNixOS()
+    ? "distrobox enter ubuntu -- ../scripts/test_on_ubuntu.sh 2>&1" 
     : "yarn test //packages/core/test //packages/common/test 2>&1"
   const angularTraceFlag = `console.error(new Error('tranSPArent flag'))`
   const angularStitches = autostitch(angularDbDir, angularSrcDir, angularRunTestCmd, angularTraceFlag)
@@ -144,6 +137,17 @@ async function main() {
   let angularQueryString = ANGULAR_PREFIX
   angularQueryString += generateAngularRef()
   fs.writeFileSync(`${DEST_DIR}/Angular.qll`, angularQueryString)
+}
+
+function isNixOS() {
+  let isNixOS = false;
+  try {
+      const unameOutput = execSync('uname -a').toString().trim();
+      isNixOS = unameOutput.includes('NixOS');
+  } catch (error) {
+      console.error('Error detecting OS:', error);
+  }
+  return isNixOS;
 }
 
 main().catch(err => {

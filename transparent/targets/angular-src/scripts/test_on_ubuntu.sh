@@ -12,10 +12,10 @@
 
 cd ../angular
 
-sudo apt update
-sudo apt upgrade -y
-sudo apt install yarnpkg -y
+# sudo apt update
+# sudo apt upgrade -y
+# sudo apt install yarnpkg -y
 
-yarnpkg install
-yarnpkg test //packages/core/test //packages/common/test
-# yarnpkg test //packages/compiler-cli/test/ngtsc
+yarn install
+yarn test --cache_test_results=no //packages/core/test //packages/common/test
+# yarn test //packages/compiler-cli/test/ngtsc
