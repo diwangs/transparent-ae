@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test:vue2": "vitest run stitcher -t vue2",
-    "test:react": "vitest run stitcher -t react"
+    "test:react": "vitest run stitcher -t react",
+    "test:angular": "vitest run stitcher -t angular"
   },
   "devDependencies": {
     "@types/node": "^20.14.10",

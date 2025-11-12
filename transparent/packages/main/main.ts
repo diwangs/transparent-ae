@@ -1,4 +1,5 @@
 import fs from 'fs'
+import { execSync } from 'child_process'
 import PrettyTable from 'prettytable'
 
 import { extrapolateMapping } from 'template-mapping/extrapolated-mapping'
@@ -7,6 +8,7 @@ import { concreteMapping } from 'template-mapping/concrete-mapping'
 import { VUE2_PREFIX, generateVue2JsSyntax, generateVue2JsxSyntax, generateVue2Ref } from 'querygen/vue2'
 import { REACT_PREFIX, generateReactJsSyntax, generateReactJsxSyntax, generateReactRef } from 'querygen/react'
 import { ANGULAR_PREFIX, generateAngularRef } from 'querygen/angular'
+import { autostitch, flowToTS, tsToFlow, writeStitchesToFile } from 'autostitch'
 
 const DEST_DIR = '../../../qlpack/transparentsinks'
 
@@ -25,6 +27,40 @@ const ANGULAR_VANILLA_SINKS = [
 ]
 
 async function main() {
+  // Do autostitch
+  let isNixOS = false;
+  try {
+      const unameOutput = execSync('uname -a').toString().trim();
+      isNixOS = unameOutput.includes('NixOS');
+  } catch (error) {
+      console.error('Error detecting OS:', error);
+  }
+  // Vue2
+  const vue2SrcDir = '../../targets/vue2-src/vue'
+  const vue2DbDir = '../../build/codeql-db/vue2-src'
+  const vue2RunTestCmd = "pnpm test:unit 2>&1"
+  const vue2TraceFlag = `console.trace('tranSPArent flag')`
+  const vue2Stitches = autostitch(vue2DbDir, vue2SrcDir, vue2RunTestCmd, vue2TraceFlag)
+  writeStitchesToFile(vue2Stitches, '../../qlpacks/transparent/Stitches/Vue2.qll')
+  // React
+  const reactSrcDir = '../../targets/react-src/react'
+  const reactDbDir = '../../build/codeql-db/react-ts-src'
+  const reactRunTestCmd = "yarn test 2>&1"
+  const reactTraceFlag = `console.trace('tranSPArent flag')`
+  const reactStitches = autostitch(reactDbDir, reactSrcDir, reactRunTestCmd, reactTraceFlag, tsToFlow, flowToTS)
+  writeStitchesToFile(reactStitches, '../../qlpacks/transparent/Stitches/React.qll')
+  // Angular
+  const angularSrcDir = '../../targets/angular-src/angular'
+  const angularDbDir = '../../build/codeql-db/angular-src'
+  const angularRunTestCmd = isNixOS 
+    ? "distrobox enter -r ubuntu -- ../scripts/test_on_ubuntu.sh 2>&1" 
+    : "yarn test //packages/core/test //packages/common/test 2>&1"
+  const angularTraceFlag = `console.error(new Error('tranSPArent flag'))`
+  const angularStitches = autostitch(angularDbDir, angularSrcDir, angularRunTestCmd, angularTraceFlag)
+  writeStitchesToFile(angularStitches, '../../qlpacks/transparent/Stitches/Angular.qll')
+
+  // Do taint-path analysis
+
   let vue2JsDiscoveredSinks = ["vnode.data.attrs.<nativeAttr>", "vnode.data.domProps.<nativeProp>", "vnode.data.ref"]
   let ReactJsDiscoveredSinks = ["<nativeAttr>", "dangerouslySetInnerHTML", "ref"]
   let AngularDiscoveredSinks = ["renderer2.setProperty", "ref"]
