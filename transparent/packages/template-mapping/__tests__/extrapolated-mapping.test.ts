@@ -10,11 +10,11 @@ describe("vue2", () => {
       <img src="https://foo.com/logo.png">
     </div>
     `;
-      const expectation = "vnode.data.attrs.src";
+      const expectation = "data.attrs.src";
       const toBe = "https://foo.com/logo.png";
       const mapping = extrapolateMapping(source, expectation, toBe);
       expect(mapping).toEqual({
-        "<nativeAttr>": "vnode.data.attrs.<nativeAttr>"
+        "<nativeAttr>": "data.attrs.<nativeAttr>"
       });
     });
   });
@@ -28,11 +28,11 @@ describe("vue2", () => {
     </div>
     `;
 
-      const expectation = "vnode.data.domProps.innerHTML";
+      const expectation = "data.domProps.innerHTML";
       const toBe = "<p>hi</p>";
       const mapping = extrapolateMapping(source, expectation, toBe);
       expect(mapping).toEqual({
-        "domProps<nativeProp>": "vnode.data.domProps.<nativeProp>"
+        "domProps<nativeProp>": "data.domProps.<nativeProp>"
       });
     })
 
@@ -43,11 +43,11 @@ describe("vue2", () => {
     </div>
     `;
 
-      const expectation = "vnode.data.domProps.innerHTML";
+      const expectation = "data.domProps.innerHTML";
       const toBe = "<p>hi</p>";
       const mapping = extrapolateMapping(source, expectation, toBe);
       expect(mapping).toEqual({
-        "domProps-<nativeProp>": "vnode.data.domProps.<nativeProp>"
+        "domProps-<nativeProp>": "data.domProps.<nativeProp>"
       });
     })
 
@@ -58,11 +58,11 @@ describe("vue2", () => {
     </div>
     `;
 
-      const expectation = "vnode.data.attrs.id";
+      const expectation = "data.attrs.id";
       const toBe = "hehe";
       const mapping = extrapolateMapping(source, expectation, toBe);
       expect(mapping).toEqual({
-        "attrs-<nativeAttr>": "vnode.data.attrs.<nativeAttr>"
+        "attrs-<nativeAttr>": "data.attrs.<nativeAttr>"
       });
     })
 
@@ -73,11 +73,11 @@ describe("vue2", () => {
     </div>
     `;
 
-      const expectation = "vnode.data.attrs.id";
+      const expectation = "data.attrs.id";
       const toBe = "hehe";
       const mapping = extrapolateMapping(source, expectation, toBe);
       expect(mapping).toEqual({
-        "<nativeAttr>": "vnode.data.attrs.<nativeAttr>"
+        "<nativeAttr>": "data.attrs.<nativeAttr>"
       });
     })
   });

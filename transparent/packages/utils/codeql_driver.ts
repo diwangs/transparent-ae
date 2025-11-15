@@ -82,7 +82,7 @@ export function execQueryFile(dbPath: string, queryPath: string): Object[] {
     if (path.basename(queryPath).startsWith('track')) {
         // Name the output file with `.json` so we could parse it with `require`
         // TODO: this has a max limit of 20 results
-        const cmdBqrs = `codeql bqrs interpret -t=kind=path-problem -t=id=temp --format=sarifv2.1.0 --output=../../build/temp.sarif.json ../../build/temp.bqrs`
+        const cmdBqrs = `codeql bqrs interpret -t=kind=path-problem -t=id=temp --no-group-results --format=sarifv2.1.0 --output=../../build/temp.sarif.json ../../build/temp.bqrs`
         const interpretResult = spawnSync(cmdBqrs, spawnOpts as any)
         checkError(interpretResult)
         const sarif = require('../../build/temp.sarif.json')

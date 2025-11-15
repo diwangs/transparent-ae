@@ -63,7 +63,7 @@ describe('stitcher', () => {
         it('should produce 96 stitches on Angular (through Ubuntu Distrobox)', () => {
             const angularSrcDir = '../../targets/angular-src/angular'
             const angularDbDir = '../../build/codeql-db/angular-src'
-            const runTestCmd = "distrobox enter ubuntu -- ../scripts/test_on_ubuntu.sh 2>&1"
+            const runTestCmd = "distrobox create -Y -i ubuntu:24.04 ubuntu && distrobox enter ubuntu -- ../scripts/test_on_ubuntu.sh 2>&1"
             const traceFlag = `console.error(new Error('tranSPArent flag'))`
             
             const stitches = autostitch(angularDbDir, angularSrcDir, runTestCmd, traceFlag) 

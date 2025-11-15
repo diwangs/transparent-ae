@@ -8,7 +8,7 @@
  */
 export type Location = {
     stringValue?: string,   // String representation of the expression
-    // Note: SARIF only have URI, careful with protocol prefix
+    // Note: SARIF only have URI, careful with protocol prefix (file://)
     filepath: string,   // Might be absolute, might be relative
     startLine: number,
     endLine?: number,   // This is rarely used, but it's here for completeness

@@ -1,4 +1,4 @@
-import { ExprLocation } from "./location"
+import { Location } from "./location"
 
 /**
  * Given a JS object that conforms to the SARIF 2.1.0 format 
@@ -31,11 +31,11 @@ import { ExprLocation } from "./location"
  * @param sarif The object that conforms to the SARIF 2.1.0 spec
  * @returns An array of Location array
  */
-export function sarifToTable(sarif: Object): ExprLocation[][] {
+export function sarifToTable(sarif: Object): Location[][] {
     // console.log(sarif["runs"][0]["results"][0]["codeFlows"][0]["threadFlows"][0]["locations"])
     // results array    : different source-sink pairs
     // codeFlows array  : different path in a source-sink pair
-    let taintPaths: ExprLocation[][] = []
+    let taintPaths: Location[][] = []
     
     sarif["runs"][0]["results"].forEach((result: Object) => {
         result["codeFlows"].forEach((codeFlow: Object) => {
@@ -46,7 +46,7 @@ export function sarifToTable(sarif: Object): ExprLocation[][] {
     return taintPaths
 }
 
-function parseSarifLocation(location: Object): ExprLocation {
+function parseSarifLocation(location: Object): Location {
     return {
         // SARIF's URI starts with `file:`, we need to strip it
         filepath: (location["location"]["physicalLocation"]["artifactLocation"]["uri"] as string).replace(/^(file:)/g, ""),
