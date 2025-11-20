@@ -1,0 +1,65 @@
+/**
+ * @name Track
+ * @description Query to track post-patch render function
+ * @id javascript/track-paramval-generic
+ * @kind path-problem
+ * @problem.severity warning
+ * @tags security
+ */
+
+import javascript
+
+import Common.Utils
+import Common.Heuristics
+import Common.Angular
+
+// Autostitch result
+import Stitches.Angular
+
+// Sinks
+import Sinks.DomBasedXssCustomizationsExtended
+
+module ParamValGenericConfig implements DataFlow::ConfigSig {
+    /**
+     * Source: constructor
+     */
+    predicate isSource(DataFlow::Node n) {
+        isInjectionConstructor(n)
+    }
+
+    /**
+     * Sink: a native element
+     */
+    predicate isSink(DataFlow::Node n) {
+        isNativeElement(n)
+    }
+
+    /**
+     * Stitches: autostitch taint steps
+     */
+    predicate isAdditionalFlowStep(DataFlow::Node pred, DataFlow::Node succ) {
+        autostitchTaintStep(pred, succ)
+
+        // Heuristics
+        or heuristicsTaintStep(pred, succ)
+
+        // Specific manual stitches, for debugging
+        or manualTaintStep(pred, succ)
+    }
+
+    /**
+     * Barrier: handleError function
+     * This is just to prevent spam in React.
+     * Without this, the analysis would still be correct but the result will be long.
+     */
+    predicate isBarrier(DataFlow::Node n) {
+        n.asExpr().getEnclosingFunction().getName() = "handleError"
+    }
+}
+
+module ParamValGenericFlow = TaintTracking::Global<ParamValGenericConfig>;
+import ParamValGenericFlow::PathGraph
+
+from ParamValGenericFlow::PathNode source, ParamValGenericFlow::PathNode sink
+where ParamValGenericFlow::flowPath(source, sink)
+select sink.getNode(), source, sink, "Render function value flows to ref attachment"

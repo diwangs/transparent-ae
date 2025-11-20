@@ -21,7 +21,7 @@ describe("vue2", () => {
 
   // Based on `test/test.js` in `babel-plugin-transform-vue-jsx` repo
   describe("JSX template", () => {
-    it("should generate a extrapolated mapping { 'domProps<nativeProp>' : 'vnode.data.domProps.<nativeProp>' }", () => {
+    it("should generate a extrapolated mapping { 'domProps<nativeProp>' : 'data.domProps.<nativeProp>' }", () => {
       const source = `
     <div>
       <input domPropsInnerHTML="<p>hi</p>" />
@@ -36,7 +36,7 @@ describe("vue2", () => {
       });
     })
 
-    it("should generate a extrapolated mapping { 'domProps-<nativeProp>' : 'vnode.data.domProps.<nativeProp>' }", () => {
+    it("should generate a extrapolated mapping { 'domProps-<nativeProp>' : 'data.domProps.<nativeProp>' }", () => {
       const source = `
     <div>
       <input domProps-innerHTML="<p>hi</p>" />
@@ -51,7 +51,7 @@ describe("vue2", () => {
       });
     })
 
-    it("should generate a extrapolated mapping { 'attrs-<nativeAttr>' : 'vnode.data.attrs.<nativeAttr>' }", () => {
+    it("should generate a extrapolated mapping { 'attrs-<nativeAttr>' : 'data.attrs.<nativeAttr>' }", () => {
       const source = `
     <div>
       <input attrs-id="hehe" />
@@ -66,7 +66,7 @@ describe("vue2", () => {
       });
     })
 
-    it("should generate a extrapolated mapping { '<nativeAttr>' : 'vnode.data.attrs.<nativeAttr>' }", () => {
+    it("should generate a extrapolated mapping { '<nativeAttr>' : 'data.attrs.<nativeAttr>' }", () => {
       const source = `
     <div>
       <input id="hehe" />

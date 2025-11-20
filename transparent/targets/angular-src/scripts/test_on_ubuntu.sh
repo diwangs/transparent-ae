@@ -17,5 +17,5 @@ cd ../angular
 # sudo apt install yarnpkg -y
 
 yarn install
-yarn test --cache_test_results=no //packages/core/test //packages/common/test
-# yarn test //packages/compiler-cli/test/ngtsc
+# `--test_output=errors` and expand the stdouterr buffer to avoid truncation
+yarn test --cache_test_results=no --test_output=errors --experimental_ui_max_stdouterr_bytes=8389000 //packages/core/test //packages/common/test

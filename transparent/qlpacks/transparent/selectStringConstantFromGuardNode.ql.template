@@ -1,0 +1,21 @@
+/**
+ * @name Track
+ * @description Query to track post-patch render function
+ * @id javascript/track-paramval-generic
+ * @kind problem
+ * @problem.severity warning
+ * @tags security
+ */
+
+import javascript
+
+from DataFlow::Node n, ConstDeclStmt d, StringLiteral stringConstant
+where exists(Location loc | loc = n.asExpr().getLocation() |
+    loc.getFile().getAbsolutePath().matches("%{{gnPath}}")
+    and loc.getStartLine() = {{gnSl}}
+    and loc.getEndLine() = {{gnEl}}
+
+    and d.getADecl().getBindingPattern().getName() = n.asExpr().(Identifier).getName()
+    and d.getADecl().getInit() = stringConstant
+) 
+select stringConstant, "String constant in the conditional"

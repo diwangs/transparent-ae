@@ -1,0 +1,17 @@
+import javascript
+
+from DataFlow::Node n, ConditionGuardNode stringValue, string filepath, int startLine, int endLine
+where (
+    exists(Location loc | loc = n.asExpr().getLocation() |
+        loc.getFile().getAbsolutePath().matches("%{{nodePath}}")
+        and loc.getStartLine() = {{nodeSl}}
+        and loc.getStartColumn() = {{nodeSc}}
+        and loc.getEndColumn() = {{nodeEc}}
+    ) 
+    and stringValue.dominates(n.getBasicBlock())
+    and stringValue.getFile().getAbsolutePath() = filepath
+    and stringValue.getLocation().getStartLine() = startLine
+    and stringValue.getLocation().getEndLine() = endLine
+
+)
+select stringValue, filepath, startLine, endLine

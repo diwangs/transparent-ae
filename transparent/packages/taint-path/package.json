@@ -1,0 +1,32 @@
+{
+  "name": "taint-path",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test:pv:vue2": "vitest run paramval-analysis -t vue2",
+    "test:pv:react": "vitest run paramval-analysis -t react",
+    "test:pv:angular": "vitest run paramval-analysis -t angular",
+    "test:pv": "vitest run paramval-analysis",
+    "test:g:vue2": "vitest run generic-analysis -t vue2",
+    "test:g:react": "vitest run generic-analysis -t react",
+    "test:g:angular": "vitest run generic-analysis -t angular",
+    "test:g": "vitest run generic-analysis",
+    "test:f:vue2": "vitest run fixed-analysis -t vue2",
+    "test:f:react": "vitest run fixed-analysis -t react",
+    "test:f:angular": "vitest run fixed-analysis -t angular",
+    "test:f": "vitest run fixed-analysis",
+    "test:r:vue2": "vitest run reference-analysis -t vue2",
+    "test:r:react": "vitest run reference-analysis -t react",
+    "test:r:angular": "vitest run reference-analysis -t angular",
+    "test:r": "vitest run reference-analysis",
+    "test": "vitest run --no-file-parallelism"
+  },
+  "devDependencies": {
+    "vitest": "^1.5.3"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2"
+  }
+}

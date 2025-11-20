@@ -28,7 +28,7 @@ describe('stitcher', () => {
         })
     })
 
-    describe.skip('react', () => {
+    describe('react', () => {
         it('should produce 78 stitches on React', () => {
             const reactSrcDir = '../../targets/react-src/react'
             const reactDbDir = '../../build/codeql-db/react-ts-src'
@@ -48,7 +48,7 @@ describe('stitcher', () => {
         it('should produce 96 stitches on Angular', () => {
             const angularSrcDir = '../../targets/angular-src/angular'
             const angularDbDir = '../../build/codeql-db/angular-src'
-            const runTestCmd = "yarn test --cache_test_results=no //packages/core/test //packages/common/test 2>&1"
+            const runTestCmd = "yarn test --cache_test_results=no --test_output=errors --experimental_ui_max_stdouterr_bytes=8389000 //packages/core/test //packages/common/test 2>&1"
             const traceFlag = `console.error(new Error('tranSPArent flag'))`
             
             const stitches = autostitch(angularDbDir, angularSrcDir, runTestCmd, traceFlag)
@@ -59,6 +59,7 @@ describe('stitcher', () => {
 
     // If NixOS, use podman to run this test (and don't run it inside flatpak)
     // This assumes that the container exists, do `distrobox create -i ubuntu:24.04 ubuntu`
+    // NOTE: the first run after container creation sometimes fails, but not the second one
     describe.runIf(isNixOS)('angular-nixos', () => {
         it('should produce 96 stitches on Angular (through Ubuntu Distrobox)', () => {
             const angularSrcDir = '../../targets/angular-src/angular'

@@ -1,0 +1,20 @@
+/**
+ * @name select-node-loc
+ * @description Get the node string based on a known location. Useful for SARIF files that only outputs file name.
+ * @id transparent/check-prop-read
+ * @kind problem
+ * @problem.severity warning
+ */
+
+import javascript
+
+from DataFlow::Node node
+where (
+    exists(Location succLoc | succLoc = node.asExpr().getLocation() | 
+        succLoc.getFile().getAbsolutePath().matches("%{{succPath}}")
+        and succLoc.getStartLine() = {{succSl}}
+        and succLoc.getStartColumn() = {{succSc}}
+        and succLoc.getEndColumn() = {{succEc}}
+    )
+)
+select node, "Taint step uses prop read"

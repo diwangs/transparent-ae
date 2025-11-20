@@ -22,7 +22,7 @@ import { sarifToTable } from './sarif-parser';
  */
 export function execQuery(dbPath: string, query: string): Object[] {
     const tmpQl = `../../build/temp.ql`
-    writeFileSync(tmpQl, query)
+    writeFileSync(tmpQl, query, { flush: true })
     return execQueryFile(dbPath, tmpQl)
 }
 
@@ -48,7 +48,7 @@ export function execQueryTemplate(dbPath: string, templatePath: string, params: 
     const templateName = templatePath.split('/').slice(-1)[0]
     const filledName = templateName.replace('.ql.template', '.filled.ql')
     const filledPath = `${templateDir}/${filledName}`
-    writeFileSync(filledPath, query)
+    writeFileSync(filledPath, query, { flush: true })
     
     return execQueryFile(dbPath, filledPath)
 }
@@ -80,13 +80,13 @@ export function execQueryFile(dbPath: string, queryPath: string): Object[] {
     
     // If query starts with 'track', its result is a path (outputs a SARIF file)
     if (path.basename(queryPath).startsWith('track')) {
-        // Name the output file with `.json` so we could parse it with `require`
+        // Read and parse SARIF file
         // TODO: this has a max limit of 20 results
         const cmdBqrs = `codeql bqrs interpret -t=kind=path-problem -t=id=temp --no-group-results --format=sarifv2.1.0 --output=../../build/temp.sarif.json ../../build/temp.bqrs`
         const interpretResult = spawnSync(cmdBqrs, spawnOpts as any)
         checkError(interpretResult)
-        const sarif = require('../../build/temp.sarif.json')
-        return sarifToTable(sarif)
+        const sarif = readFileSync('../../build/temp.sarif.json', 'utf-8')
+        return sarifToTable(JSON.parse(sarif))
     } else {   
         const cmd2 = `codeql bqrs decode --format=json ../../build/temp.bqrs`
         const decodeResult = spawnSync(cmd2, spawnOpts as any)

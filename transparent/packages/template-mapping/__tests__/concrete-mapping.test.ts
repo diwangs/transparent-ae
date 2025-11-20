@@ -3,7 +3,7 @@ import { concreteMapping } from '../concrete-mapping';
 
 describe("vue2", () => {
   describe("SFC template", () => {
-    it("should generate a concrete mapping { 'ref' : 'vnode.data.ref' }", () => {
+    it("should generate a concrete mapping { 'ref' : 'data.ref' }", () => {
       const source = `<template><div ref="myRef"></div></template>`;
       const expectation = "data.ref";
       const toBe = "myRef";
