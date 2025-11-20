@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 mkdir -p ../../build/codeql-db
 codeql database create \

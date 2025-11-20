@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-# Set up qlpack
+# Set up qlpack: define it here instead of `../install.sh` because it requires codeql
 pushd qlpacks/transparent
 codeql pack install
 popd

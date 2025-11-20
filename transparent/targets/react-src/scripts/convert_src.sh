@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 TS_SRC_PATH=../../build/react-ts-src
 
