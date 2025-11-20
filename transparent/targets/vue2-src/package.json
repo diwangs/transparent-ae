@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
       "build": "scripts/build_db.sh",
-      "targetinstall": "cd vue && pnpm install --frozen-lockfile && cd .."
+      "targetinstall": "cd vue && COREPACK_INTEGRITY_KEYS='' COREPACK_ENABLE_DOWNLOAD_PROMPT=0 pnpm install --frozen-lockfile && cd .."
     }
   }
   

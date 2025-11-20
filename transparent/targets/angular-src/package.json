@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
       "build": "scripts/build_db.sh",
-      "targetinstall": "cd angular && yarn install --frozen-lockfile && cd .."
+      "targetinstall": "cd angular && COREPACK_INTEGRITY_KEYS='' COREPACK_ENABLE_DOWNLOAD_PROMPT=0 yarn install --frozen-lockfile && cd .."
     }
   }
   

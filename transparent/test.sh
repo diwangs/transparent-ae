@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Short tests only just to do sanity check
 PACKAGES="querygen utils template-mapping"

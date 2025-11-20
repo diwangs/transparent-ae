@@ -12,6 +12,6 @@
     "build:src": "scripts/build_db_src.sh",
     "build:ts": "scripts/build_db_ts.sh",
     "build": "yarn convert && yarn patch && yarn build:src && yarn build:ts",
-    "targetinstall": "cd react && yarn install --frozen-lockfile && cd .."
+    "targetinstall": "cd react && COREPACK_INTEGRITY_KEYS='' COREPACK_ENABLE_DOWNLOAD_PROMPT=0 yarn install --frozen-lockfile && cd .."
   }
 }
