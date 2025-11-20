@@ -18,6 +18,7 @@ const DEST_DIR = '../../../qlpack/transparentsinks'
 
 async function main() {
   // Do autostitch
+  fs.mkdirSync('../../qlpacks/transparent/Stitches', { recursive: true });
   // Vue2
   const vue2SrcDir = '../../targets/vue2-src/vue'
   const vue2DbDir = '../../build/codeql-db/vue2-src'
