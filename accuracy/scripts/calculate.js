@@ -208,7 +208,3 @@ function getFpList(alertList, exploitableList) {
 }
 
 main().catch(console.error)
-
-// FDR: 81/165 (49.1%) 90/169 -> 79 TP -> 76/155
-// Decrease 14 data points that are false
-// TODO: create "samples" folder to decrease more granularly

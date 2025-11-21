@@ -2,19 +2,6 @@
 
 QLPACK_ROOT="../qlpack"
 
-# Prepare qlpack
-# pushd $QLPACK_ROOT
-# codeql pack install
-# popd
-
-# # Prepare repositories
-# pushd fnr
-# tar xvzf repos.tar.gz
-# popd
-# pushd fdr
-# tar xvzf repos.tar.gz
-# popd
-
 # Process for FNR
 mkdir -p fnr/build
 for dir in fnr/repos/*/; do 

@@ -16,19 +16,6 @@
         let
             pkgs = import nixpkgs { inherit system; };
             pkgs-2505 = import nixpkgs-2505 { inherit system; };
-            # buildNodeJs = with nixpkgs.legacyPackages.${system}; callPackage "${nixpkgs}/pkgs/development/web/nodejs/nodejs.nix" {
-            #   icu = pkgs.icu68;
-            #   python = pkgs.python310;
-            #   openssl = pkgs.openssl_1_1;
-            # };
-            # # Node <18 is marked as vulnerable by Nix, so this necessitates 
-            # # `NIXPKGS_ALLOW_INSECURE=1` flag.
-            # # See: https://github.com/NixOS/nixpkgs/blob/2391cd0676590c967beedc513e3af98ccc39ed8c/pkgs/development/web/nodejs/nodejs.nix#L212
-            # nodejs_14 = (buildNodeJs {
-            #     version = "14.21.3";
-            #     sha256 = "0ph7ajgajn4fkadzklxkgd6dl5aw8cyvd707rzfh1mqaws9c13j5";
-            #     enableNpm = true;
-            # });
         in rec {
             # For development
             devShells.default = pkgs.mkShell {
@@ -44,40 +31,6 @@
                 shellHook = ''
                     yarn install --frozen-lockfile
                 '';
-            };
-
-            # For release (doesn't work yet)
-            packages = rec {
-                # Doesn't work yet since it requires `yarn install`
-                # yarn2nix with workspaces?
-                # https://github.com/nix-community/yarn2nix/issues/57
-                default = pkgs.stdenv.mkDerivation {
-                    name = "transparent";
-                    src = self;
-                    buildInputs = with pkgs; [
-                        nodejs_18
-                        yarn
-                        codeql
-                    ];
-                    buildPhase = ''
-                        yarn build
-                    '';
-                    # installPhase = ''
-                    #     mkdir -p $out/react-security-queries
-                    #     cp -r react-src/build/react-security-queries/* $out/react-security-queries
-                    # '';
-                };
-
-                dockerDevShell = pkgs.dockerTools.buildNixShellImage {
-                    tag = "latest";
-                    drv = devShells.default.overrideAttrs (old: { 
-                        src = null; 
-                        shellHook = ''
-                            cd transparent
-                            yarn
-                        '';
-                    });
-                };
             };
         }
     );

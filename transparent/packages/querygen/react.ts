@@ -125,7 +125,7 @@ export function generateReactRef(isHTML: boolean, isJS: boolean): string {
             ${isHTML && isJS ? 'or' : ''}
 
             ${isJS ? `
-              exists(DataFlow::FunctionNode renderFunc, DataFlow::SourceNode props, DataFlow::Node refValue | 
+              exists(DataFlow::SourceNode props, DataFlow::Node refValue | 
                 props.flowsTo(react().getAMemberCall("createElement").getArgument(1))
                 and props.hasPropertyWrite("ref", refValue)
                 and ref.flowsTo(refValue)

@@ -104,7 +104,7 @@ async function main() {
   table5.print();
 
   // Generate CodeQL classes only for novel sinks
-  const vue2JsPatterns = vue2JsDiscoveredSinks.filter(sink => ['ref'].indexOf(sink) === -1)
+  const vue2JsPatterns = vue2JsDiscoveredSinks.filter(sink => ['ref'].indexOf(sink) === -1).map(sink => sink.replace('data.', ''))
   const vue2JsxPatterns = Object.keys(vue2JsxDiscoveredMapping).filter(sink => ['ref', 'domProps<nativeProp>', '<nativeAttr>'].indexOf(sink) === -1)
   const isJsVue2Ref = vue2JsDiscoveredSinks.includes('ref')
   const isHmlVue2Ref = vue2JsxDiscoveredMapping.hasOwnProperty('ref') && vue2SfcDiscoveredMapping.hasOwnProperty('ref')
