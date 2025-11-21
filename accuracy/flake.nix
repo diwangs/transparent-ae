@@ -16,9 +16,10 @@
                 name = "transparent";
                 src = self;
                 buildInputs = with pkgs; [
-                    jdk17       # 17.0.7
+                    gnutar
+                    git
+                    git-lfs
                     nodejs_18   # 18.20.3
-                    # corepack_18 # Yarn 1.22.19
                 ] ++ [ pkgs-2505.codeql ]; # 2.21.1
             };
         }
