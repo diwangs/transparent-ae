@@ -19,23 +19,6 @@ import BaselineSinks
 module BaselineFlowConfig implements DataFlow::ConfigSig {
   predicate isSource(DataFlow::Node source) {
     source instanceof ClientInjectionSource
-
-    // // Source is not a literal
-    // and not source.asExpr() instanceof Literal
-    // // Source is not TemplateLiteral (string literal with caret)
-    // and not exists(TemplateLiteral t | 
-    //   source.asExpr() = t
-    //   or (t.getNumElement() = 1 and source.asExpr() = t.getAnElement())  
-    // )
-    // // Source is not a text node
-    // and (
-    //   not source = DataFlow::globalVarRef("document").getAMethodCall("createTextNode")
-    //   and not exists(DataFlow::CallNode ac | 
-    //     ac.getCalleeName() = "appendChild"
-    //     and ac.getAnArgument() = DataFlow::globalVarRef("document").getAMethodCall("createTextNode")
-    //     and ac.getReceiver().getALocalSource().flowsTo(source)
-    //   )
-    // )
   }
 
   predicate isBarrier(DataFlow::Node barrier) {

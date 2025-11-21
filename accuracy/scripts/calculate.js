@@ -67,8 +67,8 @@ async function main() {
   /**
    * FDR
    */
-  let transparentAlertCount = 0 // 57
-  let transparentFpList = [] // 24
+  let transparentAlertCount = 0
+  let transparentFpList = []
   const transparentAlertFpNames = fs.readdirSync(transparentAlertFpDir)
   for (const alertFpName of transparentAlertFpNames) {
     const alertFpPath = path.join(transparentAlertFpDir, alertFpName)
@@ -96,8 +96,8 @@ async function main() {
     }
   }
 
-  let vanillaAlertCount = 0 // 34
-  let vanillaFpList = [] // 17
+  let vanillaAlertCount = 0
+  let vanillaFpList = []
   const vanillaAlertFpNames = fs.readdirSync(vanillaAlertFpDir)
   for (const alertFpName of vanillaAlertFpNames) {
     const alertFpPath = path.join(vanillaAlertFpDir, alertFpName)
@@ -129,10 +129,10 @@ async function main() {
    * Tabulation
    */
   // Count the length of the lists for tabulation
-  const transparentFnCount = transparentFnList.length
-  const vanillaFnCount = vanillaFnList.length
-  const transparentFpCount = transparentFpList.length
-  const vanillaFpCount = vanillaFpList.length
+  const transparentFnCount = transparentFnList.length // 11/56
+  const vanillaFnCount = vanillaFnList.length         // 35/56
+  const transparentFpCount = transparentFpList.length // 24/57  
+  const vanillaFpCount = vanillaFpList.length         // 17/34
 
   // Print the results as table
   console.log(`---`)
