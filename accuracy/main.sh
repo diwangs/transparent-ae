@@ -1,11 +1,11 @@
-#!/usr/bin/env bash
+#!/usr/bin/env -S NIXPKGS_ALLOW_UNFREE=1 nix develop --impure --command bash
 
 QLPACK_ROOT="../qlpack"
 
 # Prepare qlpack
-pushd $QLPACK_ROOT
-codeql pack install
-popd
+# pushd $QLPACK_ROOT
+# codeql pack install
+# popd
 
 # Prepare repositories
 pushd fnr

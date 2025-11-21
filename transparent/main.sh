@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env -S NIXPKGS_ALLOW_UNFREE=1 nix develop --impure --command bash
 
 # Set up qlpack: define it here instead of `../install.sh` because it requires codeql
 # pushd qlpacks/transparent
