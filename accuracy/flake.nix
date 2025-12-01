@@ -15,7 +15,7 @@
             devShells.default = pkgs.mkShell {
                 name = "transparent";
                 src = self;
-                buildInputs = with pkgs; [
+                packages = with pkgs; [
                     gnutar
                     git
                     git-lfs

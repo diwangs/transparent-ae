@@ -21,7 +21,7 @@
             devShells.default = pkgs.mkShell {
                 name = "transparent";
                 src = self;
-                buildInputs = with pkgs; [
+                packages = with pkgs; [
                     jdk17       # 17.0.7
                     # codeql      # 2.19.3
                     nodejs_18   # 18.20.3

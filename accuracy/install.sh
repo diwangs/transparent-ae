@@ -3,6 +3,7 @@
 QLPACK_ROOT="../qlpack"
 
 # Prepare repositories
+git lfs install
 git lfs pull
 pushd fnr
 tar xvzf repos.tar.gz
