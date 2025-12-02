@@ -9,7 +9,7 @@ rm -rf "$TS_SRC_PATH/react-devtools-extensions" "$TS_SRC_PATH/jest-react"
 
 # Convert Flow to TypeScript
 # Run this twice because the first run have errors
-flow-to-ts $TS_SRC_PATH/**/*.js --write --delete-source --inline-utility-types
+flow-to-ts $TS_SRC_PATH/**/*.js --write --delete-source --inline-utility-types 2>/dev/null
 flow-to-ts $TS_SRC_PATH/**/*.js --write --delete-source --inline-utility-types
 
 # CodeQL won't recognize TypeScript project without a tsconfig.json file
