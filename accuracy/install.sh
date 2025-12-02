@@ -5,6 +5,7 @@ QLPACK_ROOT="../qlpack"
 # Prepare repositories
 git lfs install
 git lfs pull
+git lfs uninstall
 pushd fnr
 tar xvzf repos.tar.gz
 popd
