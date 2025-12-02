@@ -4,10 +4,28 @@ This repository contains the artifact accompanying the paper titled "TranSPArent
 The subsections below describe how to re-produce the core results of the paper: Table IV and Table V.
 
 ## Installing Dependencies
-0. Pre-requisite: have Nix package manager installed with the `nix` CLI and 'flakes' feature enabled permanently
-    - Each Linux distribution might have idiomatically different ways of installing Nix and enabling relevant features. 
-    - To install, check your package manager or download Nix from upstream: [nixos.org](https://nixos.org/download/)
-    - Guide to enabling `nix` CLI and Flakes permanently on different distributions: [wiki.nixos.org](https://wiki.nixos.org/wiki/Flakes#Setup)
+Before running any script, it is necessary to have the required software dependencies installed. 
+Below we detail how to install all dependencies of the experiments:
+<details>
+<summary>Pre-requisite: have Nix package manager installed with the `nix` CLI and 'flakes' feature enabled permanently</summary>
+
+- Each Linux distribution might have idiomatically different ways of installing Nix and enabling relevant features. 
+- To install, check your package manager or download Nix from upstream: [nixos.org](https://nixos.org/download/)
+- Guide to enabling `nix` CLI and Flakes permanently on different distributions: [wiki.nixos.org](https://wiki.nixos.org/wiki/Flakes#Setup)
+
+</details>
+
+<details>
+<summary>Pre-requisite: have Git LFS installed and initialized</summary>
+
+- Each Linux distribution might have idiomatically different ways of installing Git LFS from their package manager.
+- To initialize Git LFS, run `git lfs install`
+- Theoretically, Git LFS is not strictly required, since we do initialize Git LFS local hooks (see `accuracy/install.sh`). Nonetheless, there are some cases where the repository itself fails to be cloned and run because an error in the Git global hooks. Installing Git LFS manually solves this issue.
+
+</details>
+
+
+After these pre-requisites have been fulfilled, run the following commands:
 1. `git clone --recursive https://github.com/diwangs/transparent-ae`
 2. `cd transparent-ae`
 3. `./install.sh` (execution takes approximately 30 mins in Ryzen 7 7840U-based system)
