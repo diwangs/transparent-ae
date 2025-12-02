@@ -3,9 +3,9 @@
 QLPACK_ROOT="../qlpack"
 
 # Prepare repositories
-git lfs install
+git lfs install --local # disable global side effects
 git lfs pull
-git lfs uninstall
+git lfs uninstall --local
 pushd fnr
 tar xvzf repos.tar.gz
 popd
