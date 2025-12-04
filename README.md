@@ -1,4 +1,7 @@
 # TranSPArent Artifact Evaluation
+
+[![DOI](https://zenodo.org/badge/1093523357.svg)](https://doi.org/10.5281/zenodo.17822390)
+
 This repository contains the artifact accompanying the paper titled "TranSPArent: Taint-style Vulnerability Detection in Generic Single-Page Applications through Automated Framework Abstraction".
 
 The subsections below describe how to re-produce the core results of the paper: Table IV and Table V.
@@ -52,10 +55,10 @@ After these pre-requisites have been fulfilled, run the following commands:
 2. `./main.sh` (execution takes approximately 4 hours in Ryzen 7 7840U-based system)
 3. Table IV will be printed to `stdout`
 
----
+<!-- ---
 ---
 
 ## Reproducibility Details
 - Uses versioned nixpkgs (nixpkgs-24.05 except CodeQL, which uses nixpkgs-25.05)
 - Frozen lockfile
-- Disabled corepack signature verification due to periodic NPM key rotation
+- Disabled corepack signature verification due to periodic NPM key rotation -->
