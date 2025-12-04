@@ -5,7 +5,7 @@ The subsections below describe how to re-produce the core results of the paper: 
 
 ## Installing Dependencies
 Before running any script, it is necessary to have the required software dependencies installed. 
-Below we detail how to install all dependencies of the experiments:
+Below we detail how to install all dependencies of the experiments on a generic Linux machine:
 <details>
 <summary>Pre-requisite: have Nix package manager installed with the `nix` CLI and 'flakes' feature enabled permanently</summary>
 
@@ -16,11 +16,13 @@ Below we detail how to install all dependencies of the experiments:
 </details>
 
 <details>
-<summary>Pre-requisite: have Git LFS installed and initialized</summary>
+<summary>Pre-requisite: have Git with LFS plugin installed and initialized</summary>
 
+- Git comes bundled with most Linux distribution.
 - Each Linux distribution might have idiomatically different ways of installing Git LFS from their package manager.
-- To initialize Git LFS, run `git lfs install`
-- Theoretically, Git LFS is not strictly required, since we do initialize Git LFS local hooks (see `accuracy/install.sh`). Nonetheless, there are some cases where the repository itself fails to be cloned and run because an error in the Git global hooks. Installing Git LFS manually solves this issue.
+- To install Git LFS, check your package manager: [github.com/git-lfs/git-lfs](https://github.com/git-lfs/git-lfs?utm_source=gitlfs_site&utm_medium=installation_link&utm_campaign=gitlfs#installing)
+- To initialize Git LFS globally after installation, run `git lfs install`
+- Technically, Git LFS is not strictly required, since we do initialize Git LFS local hooks (see `accuracy/install.sh`). Nonetheless, there are some cases where the repository itself fails to be cloned and run because an error in the Git global hooks. Installing Git LFS manually solves this issue.
 
 </details>
 
