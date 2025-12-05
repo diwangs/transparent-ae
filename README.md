@@ -1,6 +1,6 @@
 # TranSPArent Artifact Evaluation
 
-[![DOI](https://zenodo.org/badge/1093523357.svg)](https://doi.org/10.5281/zenodo.17822390)
+[![DOI](https://zenodo.org/badge/1093523357.svg)](https://doi.org/10.5281/zenodo.17822391)
 
 This repository contains the artifact accompanying the paper titled "TranSPArent: Taint-style Vulnerability Detection in Generic Single-Page Applications through Automated Framework Abstraction".
 
