@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/1093523357.svg)](https://doi.org/10.5281/zenodo.17822391)
 
-This repository contains the artifact accompanying the paper titled "TranSPArent: Taint-style Vulnerability Detection in Generic Single-Page Applications through Automated Framework Abstraction".
+This repository contains the artifact accompanying the NDSS 26 paper titled "TranSPArent: Taint-style Vulnerability Detection in Generic Single-Page Applications through Automated Framework Abstraction".
 
 The subsections below describe how to re-produce the core results of the paper: Table IV and Table V.
 
@@ -44,21 +44,26 @@ After these pre-requisites have been fulfilled, run the following commands:
 2. `./test.sh`
 3. If the script runs without error, it means the environment is (hopefully) ready
 
-## Automated Framework Abstraction (Table V)
+## Experiment 1: Automated Framework Abstraction (Table V)
+In Experiment 1, TranSPArent is applied against Vue, React, and Angular source code to produce the intermediate SPA sinks (Table V) and CodeQL queries to analyze applications built on top of them.
+In broad strokes, this experiment will:
+- Prepare and convert Vue, React, and Angular source code (stored in `transparent/targets`) into CodeQL database format.
+- Run the three successive analyses of TranSPArent (autostitch, taint path analysis, and template mapping; main TypeScript code is stored in `transparent/packages` and accompanying CodeQL queries are stored in `transparent/qlpacks`) against the CodeQL database to produce SPA sinks.
+- Compile the found SPA sinks into Table V and synthesize CodeQL queries to be used in Experiment 2.
+
+To run Experiment 1, follow these steps:
 1. `cd transparent`
 2. `./main.sh` (execution takes approximately 2 hours in Ryzen 7 7840U-based system)
 3. Table V will be printed to `stdout` and the resulting queries will be written in `qlpack/transparentsinks`
 
-## Accuracy Evaluation (Table IV)
-0. Pre-requisite: do Automated Framework Abstraction first to synthesize the necessary queries 
+## Experiment 2: Accuracy Evaluation (Table IV)
+In Experiment 2, the SPA sinks that is found in Experiment 1 is used to analyze the two datasets (known vulnerability dataset and positive label GitHub dataset) for false negative rate (FNR) and false discovery rate (FDR) respectively.
+In broad strokes, this experiment will:
+- Run CodeQL with and without the synthesized queries in Experiment 1 against the known vulnerability dataset (located in `accuracy/fnr/repos.tar.gz`) and comparing it to the provided labels (located in `accuracy/fnr/labels`).
+- Run CodeQL with and without the synthesized queries in Experiment 1 against the positive label GitHub dataset (located in `accuracy/fdr/repos.tar.gz`) and comparing it to the provided labels (located in `accuracy/fdr/labels`).
+- Compile the FNR and FDR for Vanilla CodeQL (CodeQL without synthesized queries) and TranSPArent into Table IV.
+
+To run Experiment 2, follow these steps after running Experiment 1:
 1. `cd accuracy`
 2. `./main.sh` (execution takes approximately 4 hours in Ryzen 7 7840U-based system)
 3. Table IV will be printed to `stdout`
-
-<!-- ---
----
-
-## Reproducibility Details
-- Uses versioned nixpkgs (nixpkgs-24.05 except CodeQL, which uses nixpkgs-25.05)
-- Frozen lockfile
-- Disabled corepack signature verification due to periodic NPM key rotation -->
